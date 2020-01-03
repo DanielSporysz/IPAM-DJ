@@ -1,1 +1,1 @@
-# gui-react
+# ReactGUI
