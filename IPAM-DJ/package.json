@@ -1,6 +1,6 @@
 {
-  "name": "IPAM-DJ",
-  "version": "0.1",
+  "name": "ipamdj",
+  "version": "0.0.1",
   "description": "",
   "keywords": [],
   "main": "src/index.js",
