@@ -1,6 +1,6 @@
 {
-  "name": "gui",
-  "version": "1.0.0",
+  "name": "IPAM-DJ",
+  "version": "0.1",
   "description": "",
   "keywords": [],
   "main": "src/index.js",
