@@ -1,11 +1,13 @@
-import {TEST} from "../actions/types"
+import {__DEV__FETCH_LOCATION_LIST, FETCH_LOCATION_LIST} from "../actions/types"
 
-export const testReducer = (state = {}, action) => {
+export const fetchReducer = (state = {}, action) => {
     switch (action.type) {
-        case TEST:
+        case __DEV__FETCH_LOCATION_LIST:
+        case FETCH_LOCATION_LIST:
             return {
                 ...state,
-                isTestSuccessful:true
+                LocList:action.LocList,
+                isLocListReady:true
             };
         default:
             return state;

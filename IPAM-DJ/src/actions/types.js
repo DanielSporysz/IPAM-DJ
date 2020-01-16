@@ -1,1 +1,2 @@
-export const TEST = "TEST"
+export const __DEV__FETCH_LOCATION_LIST = "__DEV__FETCH_NAT_LIST";
+export const FETCH_LOCATION_LIST = "FETCH_NAT_LIST";

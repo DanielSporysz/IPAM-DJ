@@ -1,13 +1,10 @@
 import React, {Component} from "react"
 import {connect} from "react-redux"
 
-import {makeTest} from "../actions/testActions";
-
 import TopNavBar from "../components/TopNavBar"
 
 class Home extends Component{
     render() {
-        this.props.makeTest();
         return (
             <div>
                 <TopNavBar/>
@@ -17,4 +14,4 @@ class Home extends Component{
     }
 }
 
-export default connect(null, {makeTest})(Home)
+export default connect()(Home)

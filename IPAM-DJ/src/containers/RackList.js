@@ -2,13 +2,13 @@ import React from "react"
 import Unimplemented from "../components/Unimplemented";
 import TopNavBar from "../components/TopNavBar";
 
-function NAT(props) {
+function RackList() {
     return (
         <div>
             <TopNavBar/>
-            <Unimplemented feature={NAT.name}/>
+            <Unimplemented feature={RackList.name}/>
         </div>
     );
 }
 
-export default NAT
+export default RackList

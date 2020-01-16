@@ -2,13 +2,13 @@ import React from "react"
 import Unimplemented from "../components/Unimplemented";
 import TopNavBar from "../components/TopNavBar";
 
-function VLAN(props) {
+function NATList() {
     return (
         <div>
             <TopNavBar/>
-            <Unimplemented feature={VLAN.name}/>
+            <Unimplemented feature={NATList.name}/>
         </div>
     );
 }
 
-export default VLAN
+export default NATList

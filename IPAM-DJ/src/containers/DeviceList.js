@@ -2,13 +2,13 @@ import React from "react"
 import Unimplemented from "../components/Unimplemented";
 import TopNavBar from "../components/TopNavBar";
 
-function Device(props) {
+function DeviceList() {
     return (
         <div>
             <TopNavBar/>
-            <Unimplemented feature={Device.name}/>
+            <Unimplemented feature={DeviceList.name}/>
         </div>
     );
 }
 
-export default Device
+export default DeviceList

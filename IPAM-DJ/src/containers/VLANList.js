@@ -2,13 +2,13 @@ import React from "react"
 import Unimplemented from "../components/Unimplemented";
 import TopNavBar from "../components/TopNavBar";
 
-function Rack(props) {
+function VLANList() {
     return (
         <div>
             <TopNavBar/>
-            <Unimplemented feature={Rack.name}/>
+            <Unimplemented feature={VLANList.name}/>
         </div>
     );
 }
 
-export default Rack
+export default VLANList
