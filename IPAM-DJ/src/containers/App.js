@@ -1,6 +1,5 @@
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import React from "react";
-import Unimplemented from "../components/Unimplemented"
 import Home from "./Home";
 import Device from "./Device";
 import Location from "./Location";
