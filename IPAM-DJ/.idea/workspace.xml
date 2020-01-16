@@ -2,14 +2,35 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c83e660f-1d13-4988-8cad-d6e73752d8b8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/danie.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/TopNavBar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Unimplemented.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/containers/App.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/containers/Device.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/containers/Home.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/containers/Location.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/containers/NAT.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/containers/Rack.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/containers/Subnet.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/containers/VLAN.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="IPAM-DJ" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -23,10 +44,16 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\danie\Desktop\ReactGUI\IPAM-DJ\src\components" />
+    </key>
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -52,6 +79,8 @@
       <updated>1579096212028</updated>
       <workItem from="1579096214777" duration="596000" />
       <workItem from="1579096826634" duration="363000" />
+      <workItem from="1579106439517" duration="709000" />
+      <workItem from="1579160840609" duration="4700000" />
     </task>
     <servers />
   </component>
@@ -59,25 +88,34 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1993" height="294" key="GridCell.Tab.0.bottom" timestamp="1579096971967">
-      <screen x="0" y="0" width="2048" height="1112" />
+    <state x="541" y="215" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1579161658748">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state x="541" y="215" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1579161658748" />
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1579121972982">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1579121972982" />
     <state width="1993" height="294" key="GridCell.Tab.0.bottom/0.0.2048.1112@0.0.2048.1112" timestamp="1579096971967" />
-    <state width="1993" height="294" key="GridCell.Tab.0.center" timestamp="1579096971967">
-      <screen x="0" y="0" width="2048" height="1112" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1579121972982">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1579121972982" />
     <state width="1993" height="294" key="GridCell.Tab.0.center/0.0.2048.1112@0.0.2048.1112" timestamp="1579096971967" />
-    <state width="1993" height="294" key="GridCell.Tab.0.left" timestamp="1579096971967">
-      <screen x="0" y="0" width="2048" height="1112" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1579121972981">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1579121972981" />
     <state width="1993" height="294" key="GridCell.Tab.0.left/0.0.2048.1112@0.0.2048.1112" timestamp="1579096971967" />
-    <state width="1993" height="294" key="GridCell.Tab.0.right" timestamp="1579096971967">
-      <screen x="0" y="0" width="2048" height="1112" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1579121972982">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1579121972982" />
     <state width="1993" height="294" key="GridCell.Tab.0.right/0.0.2048.1112@0.0.2048.1112" timestamp="1579096971967" />
-    <state x="657" y="333" key="com.intellij.ide.util.TipDialog" timestamp="1579096825696">
-      <screen x="0" y="0" width="2048" height="1112" />
+    <state x="493" y="247" key="com.intellij.ide.util.TipDialog" timestamp="1579160841420">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state x="493" y="247" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1579160841420" />
     <state x="657" y="333" key="com.intellij.ide.util.TipDialog/0.0.2048.1112@0.0.2048.1112" timestamp="1579096825696" />
   </component>
 </project>
