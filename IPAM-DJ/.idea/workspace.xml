@@ -2,24 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c83e660f-1d13-4988-8cad-d6e73752d8b8" name="Default Changelist" comment="loc fetching reducers, viewing list of locations, viewing location, deleted test reducers, renamed components &quot;+List&quot;">
-      <change afterPath="$PROJECT_DIR$/src/actions/fetchActions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Table.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/LocationList.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/LocationView.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actions/testActions.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actions/types.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/types.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/TopNavBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TopNavBar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/Device.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/DeviceList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/Location.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/NAT.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/NATList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/Rack.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/RackList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/Subnet.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/SubnetList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/VLAN.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/VLANList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/reducers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/reducers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,6 +78,17 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="loc fetching reducers, viewing list of locations, viewing location, deleted test reducers, renamed components &quot;+List&quot;" />
