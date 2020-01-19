@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import {connect} from "react-redux"
 
 import TopNavBar from "../components/TopNavBar";
-import {__dev__fetchLocationList} from "../actions/fetchActions";
+import {fetchLocListIfNeeded} from "../actions/fetchActions";
 
 class LocationView extends Component {
     static propTypes = {
@@ -12,9 +12,7 @@ class LocationView extends Component {
     };
 
     componentDidMount() {
-        if(!this.props.isLocListReady){
-            this.props.__dev__fetchLocationList();
-        }
+        this.props.fetchLocListIfNeeded();
     }
 
     render() {
@@ -39,4 +37,4 @@ const mapStateToProps = state => {
     }
 };
 
-export default connect(mapStateToProps, {__dev__fetchLocationList})(LocationView)
+export default connect(mapStateToProps, {fetchLocListIfNeeded})(LocationView)

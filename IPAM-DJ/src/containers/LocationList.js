@@ -4,17 +4,17 @@ import {connect} from "react-redux"
 import {Link} from "react-router-dom";
 
 import TopNavBar from "../components/TopNavBar";
-import {__dev__fetchLocationList} from "../actions/fetchActions";
+import {fetchLocListIfNeeded} from "../actions/fetchActions";
 import Table from "../components/Table";
 
 class LocationList extends Component {
     static propTypes = {
         LocList: PropTypes.object,
-        isLocListReady: PropTypes.bool
+        isLocListReady: PropTypes.bool,
     };
 
     componentDidMount() {
-        this.props.__dev__fetchLocationList();
+        this.props.fetchLocListIfNeeded();
     }
 
     render() {
@@ -44,4 +44,4 @@ const mapStateToProps = state => {
     }
 };
 
-export default connect(mapStateToProps, {__dev__fetchLocationList: __dev__fetchLocationList})(LocationList)
+export default connect(mapStateToProps, {fetchLocListIfNeeded})(LocationList)

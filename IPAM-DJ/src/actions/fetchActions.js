@@ -1,29 +1,39 @@
-import {__DEV__FETCH_LOCATION_LIST} from "./types"
+import {RECEIVE_LOCATION_LIST} from "./types"
 
-export const __dev__fetchLocationList = () => dispatch => {
-    const mockUp = {
-        "asasdajwqndajsd_ID":{"about":"Ta w Europie lol", "name":"Polska"},
-        "adazwefdsfsdasd_ID":{"about":"Fajna gra", "name":"Factorio"},
+const MAX_AGE = 30 * 1000;
+
+export const fetchLocListIfNeeded = () => (dispatch, getState) => {
+    if (shouldLocListUpdate(getState)) {
+        dispatch(fetchLocList());
+    }
+};
+
+const shouldLocListUpdate = getState => {
+    const {LocListReceivedAt} = getState().fetchReducer;
+    return !LocListReceivedAt || new Date() - LocListReceivedAt > MAX_AGE;
+};
+
+
+export const fetchLocList = () => dispatch => {
+    dispatch(__mockUp__fetchLocationList());
+    /*fetch('fajny url')
+        .then(res => res.json())
+        .then(payload => dispatch(receiveNATList(payload)));*/
+};
+
+export const __mockUp__fetchLocationList = () => dispatch => {
+    const payload = {
+        "abcdefgh_ID": {"about": "Czerwono biała", "name": "Polska"},
+        "xyzabcdf_ID": {"about": "Oddział 3", "name": "Factorio"},
     };
 
+    dispatch(receiveLocList(payload));
+};
+
+const receiveLocList = payload => dispatch => {
     dispatch({
-        type: __DEV__FETCH_LOCATION_LIST,
-        LocList:mockUp
+        type: RECEIVE_LOCATION_LIST,
+        LocList: payload,
+        LocListReceivedAt: Date.now()
     });
 };
-
-/*
-export const fetchNATList = () => dispatch => {
-    throw new Error("fetchNATList: IT'S NOT IMPLEMENTED YET");
-    fetch('fajny url')
-        .then(res => res.json())
-        .then(payload => dispatch(receiveNATList(payload)));
-};
-
-const receiveNATList = (payload) => {
-    throw new Error("receiveNATList: IT'S NOT IMPLEMENTED YET");
-    return{
-        type: FETCH_NAT_LIST,
-        offers: payload,
-    };
-};*/
