@@ -7,14 +7,11 @@ function Table(props) {
 
     const table_body = [];
     for (const itemId in props.items) {
-        if (props.items.hasOwnProperty(itemId)){
+        if (props.items.hasOwnProperty(itemId)) {
             let children = [];
             for (const labelId in props.labels) {
                 if (props.labels.hasOwnProperty(labelId)) {
-                    let label = props.labels[labelId];
-                    if (props.items[itemId].hasOwnProperty(label)) {
-                        children.push(<td key={labelId}>{props.items[itemId][label]}</td>)
-                    }
+                    children.push(<td key={labelId}>{props.items[itemId][props.labels[labelId]]}</td>)
                 }
             }
             table_body.push(<tr key={itemId}>{children}</tr>);
@@ -24,7 +21,7 @@ function Table(props) {
     return <div>
         <table>
             <thead>
-            <tr>{table_labels}</tr>
+            {table_labels}
             </thead>
             <tbody>{table_body}</tbody>
         </table>

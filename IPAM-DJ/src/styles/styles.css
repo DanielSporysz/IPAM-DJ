@@ -10,3 +10,16 @@ div.topNavBar{
 a{
   margin: 5px;
 }
+
+table {
+  background-color: rgba(115, 118, 126, 0.62);
+}
+
+table tr:hover{
+  background-color: #ffff99;
+}
+
+img.delete,
+img.edit{
+  width: 17px;
+}

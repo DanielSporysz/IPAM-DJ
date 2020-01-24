@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c83e660f-1d13-4988-8cad-d6e73752d8b8" name="Default Changelist" comment="loc fetching reducers, viewing list of locations, viewing location, deleted test reducers, renamed components &quot;+List&quot;">
+    <list default="true" id="c83e660f-1d13-4988-8cad-d6e73752d8b8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/icons/delete.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/icons/edit.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actions/fetchActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/fetchActions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actions/types.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/types.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Table.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Table.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/LocationList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/LocationList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/reducers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/reducers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,11 +39,13 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="jdk.selected.JAVA_MODULE" value="1.8" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Daniel\Desktop\IPAM-DJ\IPAM-DJ\src\icons" />
       <recent name="C:\Users\Daniel\Desktop\IPAM-DJ\IPAM-DJ\src\containers" />
       <recent name="C:\Users\danie\Desktop\ReactGUI\IPAM-DJ\src\styles" />
       <recent name="C:\Users\danie\Desktop\ReactGUI\IPAM-DJ\src\components" />
@@ -77,8 +80,17 @@
       <workItem from="1579175067892" duration="15389000" />
       <workItem from="1579281734700" duration="1492000" />
       <workItem from="1579438391910" duration="28000" />
-      <workItem from="1579438497403" duration="2963000" />
+      <workItem from="1579438497403" duration="3781000" />
+      <workItem from="1579873498119" duration="4606000" />
     </task>
+    <task id="LOCAL-00001" summary="better fetching actions">
+      <created>1579442367855</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1579442367855</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -99,7 +111,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="loc fetching reducers, viewing list of locations, viewing location, deleted test reducers, renamed components &quot;+List&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="loc fetching reducers, viewing list of locations, viewing location, deleted test reducers, renamed components &quot;+List&quot;" />
+    <MESSAGE value="better fetching actions" />
+    <option name="LAST_COMMIT_MESSAGE" value="better fetching actions" />
   </component>
   <component name="WindowStateProjectService">
     <state x="541" y="215" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1579161658748">
@@ -110,10 +123,10 @@
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state x="705" y="276" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.2048.1112@0.0.2048.1112" timestamp="1579438397464" />
-    <state x="488" y="75" key="CommitChangelistDialog2" timestamp="1579195689700">
+    <state x="488" y="75" key="CommitChangelistDialog2" timestamp="1579878416818">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state x="488" y="75" key="CommitChangelistDialog2/0.0.2048.1112@0.0.2048.1112" timestamp="1579195689700" />
+    <state x="488" y="75" key="CommitChangelistDialog2/0.0.2048.1112@0.0.2048.1112" timestamp="1579878416818" />
     <state width="1993" height="294" key="GridCell.Tab.0.bottom" timestamp="1579291473696">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
@@ -134,15 +147,23 @@
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1579169230406" />
     <state width="1993" height="294" key="GridCell.Tab.0.right/0.0.2048.1112@0.0.2048.1112" timestamp="1579291473695" />
-    <state x="657" y="333" key="com.intellij.ide.util.TipDialog" timestamp="1579438532715">
+    <state x="517" y="224" key="Vcs.Push.Dialog.v2" timestamp="1579442371882">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="517" y="224" key="Vcs.Push.Dialog.v2/0.0.2048.1112@0.0.2048.1112" timestamp="1579442371882" />
+    <state x="657" y="333" key="com.intellij.ide.util.TipDialog" timestamp="1579873497500">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state x="493" y="247" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1579160841420" />
-    <state x="657" y="333" key="com.intellij.ide.util.TipDialog/0.0.2048.1112@0.0.2048.1112" timestamp="1579438532715" />
+    <state x="657" y="333" key="com.intellij.ide.util.TipDialog/0.0.2048.1112@0.0.2048.1112" timestamp="1579873497500" />
     <state x="802" y="449" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1579195621776">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state x="802" y="449" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.2048.1112@0.0.2048.1112" timestamp="1579195621776" />
+    <state x="295" y="184" key="new project wizard" timestamp="1579876835065">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="295" y="184" key="new project wizard/0.0.2048.1112@0.0.2048.1112" timestamp="1579876835065" />
     <state x="707" y="117" key="refactoring.ChangeSignatureDialog" timestamp="1579441500552">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>

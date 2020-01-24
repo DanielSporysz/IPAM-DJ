@@ -7,6 +7,9 @@ import TopNavBar from "../components/TopNavBar";
 import {fetchLocListIfNeeded} from "../actions/fetchActions";
 import Table from "../components/Table";
 
+import EditImage from "../icons/edit.svg";
+import DeleteImage from "../icons/delete.svg";
+
 class LocationList extends Component {
     static propTypes = {
         LocList: PropTypes.object,
@@ -18,9 +21,17 @@ class LocationList extends Component {
     }
 
     render() {
+        // Add missing values to display
         let items = this.props.LocList;
-        for(const itemId in items){
-            items[itemId]["id"] = <Link to={"/location/" + itemId} key={itemId}>{itemId}</Link>
+        for (const itemId in items) {
+            items[itemId]["id"] = itemId;
+            items[itemId]["options"] =
+                <div>
+                    <Link to={"/location/" + itemId} key={itemId}>
+                        <img className="edit" src={EditImage} alt="edit"/>
+                    </Link>
+                    <img className="delete" src={DeleteImage} alt="delete"/>
+                </div>;
         }
 
         return (
@@ -29,7 +40,7 @@ class LocationList extends Component {
                 {this.props.isLocListReady ?
                     <div>
                         List of all locations:
-                        <Table items={items} labels={["id", "name", "about"]}/>
+                        <Table items={items} labels={["id", "name", "about", "options"]}/>
                     </div>
                     : "Fetching list of locations..."}
             </div>
