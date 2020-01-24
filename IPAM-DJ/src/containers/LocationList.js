@@ -27,10 +27,12 @@ class LocationList extends Component {
             items[itemId]["id"] = itemId;
             items[itemId]["options"] =
                 <div>
-                    <Link to={"/location/" + itemId} key={itemId}>
+                    <Link to={"/location/" + itemId + "/edit"} key={itemId}>
                         <img className="edit" src={EditImage} alt="edit"/>
                     </Link>
-                    <img className="delete" src={DeleteImage} alt="delete"/>
+                    <Link to={"/location/" + itemId + "/delete"} key={itemId}>
+                        <img className="delete" src={DeleteImage} alt="delete"/>
+                    </Link>
                 </div>;
         }
 

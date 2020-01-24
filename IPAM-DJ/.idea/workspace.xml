@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c83e660f-1d13-4988-8cad-d6e73752d8b8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/icons/delete.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/icons/edit.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/containers/LocationDelete.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Table.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Table.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/LocationList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/LocationList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/LocationView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/LocationEdit.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

@@ -3,7 +3,8 @@ import React from "react";
 import Home from "./Home";
 import DeviceList from "./DeviceList";
 import Location from "./LocationList";
-import ViewLocation from "./LocationView";
+import LocationEdit from "./LocationEdit";
+import LocationDelete from "./LocationDelete";
 import NATList from "./NATList";
 import RackList from "./RackList";
 import VLANList from "./VLANList";
@@ -18,7 +19,8 @@ function App() {
                     <Route exact path="/VLANList" component={VLANList}/>
                     <Route exact path="/NATList" component={NATList}/>
                     <Route exact path="/location" component={Location}/>
-                    <Route path="/location/:id" component={ViewLocation}/>
+                    <Route path="/location/:id/edit" component={LocationEdit}/>
+                    <Route path="/location/:id/delete" component={LocationDelete}/>
                     <Route exact path="/rack" component={RackList}/>
                     <Route exact path="/subnet" component={SubnetList}/>
                 </Switch>
