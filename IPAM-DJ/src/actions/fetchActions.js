@@ -1,10 +1,11 @@
-import {RECEIVE_DEVICE_LIST, RECEIVE_LOCATION_LIST} from "./types"
+import {RECEIVE_DEVICE_LIST, RECEIVE_LOCATION_LIST, RECEIVE_NAT_LIST, RECEIVE_SUBNET_LIST, RECEIVE_RACK_LIST, RECEIVE_VLAN_LIST} from "./types"
+import firebase from "firebase";
 
 const MAX_AGE = 30 * 1000;
 
 /*
 *
-* Should update checking
+* Should update check methods
  */
 
 export const fetchDeviceListIfNeeded = () => (dispatch, getState) => {
@@ -19,6 +20,30 @@ export const fetchLocListIfNeeded = () => (dispatch, getState) => {
     }
 };
 
+export const fetchNATListIfNeeded = () => (dispatch, getState) => {
+    if (shouldListUpdate(getState().fetchReducer.NATListReceivedAt)) {
+        dispatch(fetchNATList());
+    }
+};
+
+export const fetchVLANListIfNeeded = () => (dispatch, getState) => {
+    if (shouldListUpdate(getState().fetchReducer.VLANListReceivedAt)) {
+        dispatch(fetchVLANList());
+    }
+};
+
+export const fetchRackListIfNeeded = () => (dispatch, getState) => {
+    if (shouldListUpdate(getState().fetchReducer.rackListReceivedAt)) {
+        dispatch(fetchRackList());
+    }
+};
+
+export const fetchSubnetListIfNeeded = () => (dispatch, getState) => {
+    if (shouldListUpdate(getState().fetchReducer.subnetListReceivedAt)) {
+        dispatch(fetchSubnetList());
+    }
+};
+
 const shouldListUpdate = (updatedAt) => {
     return !updatedAt || new Date() - updatedAt > MAX_AGE;
 };
@@ -28,71 +53,51 @@ const shouldListUpdate = (updatedAt) => {
 * Fetch methods
  */
 
-export const fetchDeviceList = () => dispatch => {
-    dispatch(__mockUp__fetchDeviceList());
-    /*fetch('fajny url')
-        .then(res => res.json())
-        .then(payload => dispatch(receiveNATList(payload)));*/
+const fetchDeviceList = () => dispatch => {
+    dispatch(makeRequest('devices', RECEIVE_DEVICE_LIST));
 };
 
-export const fetchLocList = () => dispatch => {
-    dispatch(__mockUp__fetchLocationList());
+const fetchLocList = () => dispatch => {
+    dispatch(makeRequest('locations', RECEIVE_LOCATION_LIST));
 };
 
-/*
-*
-* Dispatch preparation
- */
-const receiveDeviceList = payload => dispatch => {
-    dispatch({
-        type: RECEIVE_DEVICE_LIST,
-        deviceList: payload,
-        deviceListReceivedAt: Date.now()
+const fetchNATList = () => dispatch => {
+    dispatch(makeRequest('nat', RECEIVE_NAT_LIST));
+};
+
+const fetchSubnetList = () => dispatch => {
+    dispatch(makeRequest('subnets', RECEIVE_SUBNET_LIST));
+};
+
+const fetchRackList = () => dispatch => {
+    dispatch(makeRequest('racks', RECEIVE_RACK_LIST));
+};
+
+const fetchVLANList = () => dispatch => {
+    dispatch(makeRequest('vlan', RECEIVE_VLAN_LIST));
+};
+
+const makeRequest = (src, actionType) => dispatch => {
+    firebase.firestore()
+        .collection(src)
+        .get()
+        .then(snapshot => {
+            dispatch(receiveItems(snapshot, actionType))
+        });
+};
+
+const receiveItems = (snapshot, actionType) => dispatch => {
+    let items = {};
+    snapshot.forEach(doc => {
+        let item = doc.data();
+        item["id"] = doc.id;
+
+        items[doc.id] = item;
     });
-};
 
-const receiveLocList = payload => dispatch => {
     dispatch({
-        type: RECEIVE_LOCATION_LIST,
-        locList: payload,
-        locListReceivedAt: Date.now()
+        type: actionType,
+        items: items,
+        receivedAt: Date.now()
     });
-};
-
-
-/*
-*
-* Mock ups
- */
-export const __mockUp__fetchDeviceList = () => dispatch => {
-    const payload = {
-        "12j3b12_device_ID": {
-            "about": "To jest device",
-            "gateway": false,
-            "hostname": "jakaś nazwa hosta",
-            "ip": "localhost",
-            "loc": {
-                "position": 0,
-                "rack": "id racka",
-                "size": 2
-            },
-            "mac": "AA:BB:CC:DD:FF",
-            "nat": {
-                "id": "asdahsasjhas_nat_id",
-                "owner": "Daniel",
-                "subnet": "iadasdasdas_subnet_id"
-            }
-        }
-    };
-
-    dispatch(receiveDeviceList(payload));
-};
-
-export const __mockUp__fetchLocationList = () => dispatch => {
-    const payload = {
-        "abcdefgh_ID": {"about": "Czerwono biała", "name": "Polska"},
-        "xyzabcdf_ID": {"about": "Oddział 3", "name": "Factorio"},
-    };
-
-    dispatch(receiveLocList(payload));
 };
