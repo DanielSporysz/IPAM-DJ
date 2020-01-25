@@ -3,10 +3,10 @@ import React from "react"
 import TableRow from "./TableRow";
 
 function Table(props) {
-    const table_labels = props.labels.map((key, index) => {
+    const table_labels = props.labels.map((value) => {
         /* do not display "options" label as options are only visible when user hovers over the row */
-        if (key !== "options") {
-            return <th key={index}>{key.toUpperCase()}</th>
+        if (value !== "options") {
+            return <th key={value}>{value.toUpperCase()}</th>
         } else {
             return null;
         }

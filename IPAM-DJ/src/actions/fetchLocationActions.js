@@ -9,8 +9,8 @@ export const fetchLocListIfNeeded = () => (dispatch, getState) => {
 };
 
 const shouldLocListUpdate = getState => {
-    const {LocListReceivedAt} = getState().fetchReducer;
-    return !LocListReceivedAt || new Date() - LocListReceivedAt > MAX_AGE;
+    const {locListReceivedAt} = getState().fetchReducer;
+    return !locListReceivedAt || new Date() - locListReceivedAt > MAX_AGE;
 };
 
 
@@ -33,7 +33,7 @@ export const __mockUp__fetchLocationList = () => dispatch => {
 const receiveLocList = payload => dispatch => {
     dispatch({
         type: RECEIVE_LOCATION_LIST,
-        LocList: payload,
-        LocListReceivedAt: Date.now()
+        locList: payload,
+        locListReceivedAt: Date.now()
     });
 };

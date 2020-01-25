@@ -4,7 +4,7 @@ import {connect} from "react-redux"
 import {Link} from "react-router-dom";
 
 import TopNavBar from "../components/TopNavBar";
-import {fetchLocListIfNeeded} from "../actions/fetchActions";
+import {fetchLocListIfNeeded} from "../actions/fetchLocationActions";
 import Table from "../components/Table";
 
 import EditImage from "../icons/edit.svg";
@@ -12,7 +12,7 @@ import DeleteImage from "../icons/delete.svg";
 
 class LocationList extends Component {
     static propTypes = {
-        LocList: PropTypes.object,
+        locList: PropTypes.object,
         isLocListReady: PropTypes.bool,
     };
 
@@ -21,8 +21,8 @@ class LocationList extends Component {
     }
 
     render() {
-        // Add missing values to display
-        let items = this.props.LocList;
+        // Add missing values
+        let items = this.props.locList;
         for (const itemId in items) {
             items[itemId]["id"] = itemId;
             items[itemId]["options"] =
@@ -52,7 +52,7 @@ class LocationList extends Component {
 
 const mapStateToProps = state => {
     return {
-        LocList: state.fetchReducer.LocList,
+        locList: state.fetchReducer.locList,
         isLocListReady: state.fetchReducer.isLocListReady
     }
 };

@@ -28,16 +28,20 @@ class TableRow extends Component {
         for (const labelId in this.props.labels) {
             if (this.props.labels.hasOwnProperty(labelId)) {
                 const labelName = this.props.labels[labelId];
-                /* expect the field "options" to contain on-hover menu elements */
-                if (labelName !== "options" || this.state.showOptions) {
-                    children.push(<td key={labelId}>{this.props.values[labelName]}</td>)
+                if ((labelName !== "options" || this.state.showOptions) && this.props.values[labelName] !== null) {
+                    /* Objects generally can't be children of html so stringify them */
+                    /* Unless it's a special object created with JSX like "options" */
+                    if ((typeof this.props.values[labelName] === 'object' && labelName !== "options")
+                        || typeof this.props.values[labelName] === 'boolean') {
+                        children.push(<td key={labelId}>{this.props.values[labelName].toString()}</td>);
+                    } else {
+                        children.push(<td key={labelId}>{this.props.values[labelName]}</td>);
+                    }
                 }
             }
         }
 
-        return (
-            <tr onMouseEnter={this.showOptions} onMouseLeave={this.hideOptions}>{children}</tr>
-        );
+        return (<tr onMouseEnter={this.showOptions} onMouseLeave={this.hideOptions}>{children}</tr>);
     }
 }
 
