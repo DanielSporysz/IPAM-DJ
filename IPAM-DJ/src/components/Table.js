@@ -1,23 +1,21 @@
 import React from "react"
 
+import TableRow from "./TableRow";
+
 function Table(props) {
-    const table_labels = props.labels.map((key, index) => {
-        return <th key={index}>{key.toUpperCase()}</th>
+    const table_labels = props.labels.map((value) => {
+        /* do not display "options" label as options are only visible when user hovers over the row */
+        if (value !== "options") {
+            return <th key={value}>{value.toUpperCase()}</th>
+        } else {
+            return null;
+        }
     });
 
     const table_body = [];
     for (const itemId in props.items) {
-        if (props.items.hasOwnProperty(itemId)){
-            let children = [];
-            for (const labelId in props.labels) {
-                if (props.labels.hasOwnProperty(labelId)) {
-                    let label = props.labels[labelId];
-                    if (props.items[itemId].hasOwnProperty(label)) {
-                        children.push(<td key={labelId}>{props.items[itemId][label]}</td>)
-                    }
-                }
-            }
-            table_body.push(<tr key={itemId}>{children}</tr>);
+        if (props.items.hasOwnProperty(itemId)) {
+            table_body.push(<TableRow key={itemId} values={props.items[itemId]} labels={props.labels}/>);
         }
     }
 
@@ -30,6 +28,5 @@ function Table(props) {
         </table>
     </div>
 }
-
 
 export default Table

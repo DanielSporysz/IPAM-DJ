@@ -1,12 +1,31 @@
 .App {
-  font-family: sans-serif;
-  text-align: center;
+    font-family: sans-serif;
+    text-align: center;
 }
 
-div.topNavBar{
-  text-align: center;
+div.topNavBar {
+    text-align: center;
 }
 
 a{
-  margin: 5px;
+     margin: 5px;
+ }
+
+table {
+    border-spacing: 0; /* it's crucial to make on-hover options work */
+    background-color: rgba(115, 118, 126, 0.62);
+    margin: 6px;
+}
+
+table tr:hover {
+    background-color: #ffff99;
+}
+
+td {
+    padding: 5px;
+}
+
+img.delete,
+img.edit {
+    width: 17px;
 }
