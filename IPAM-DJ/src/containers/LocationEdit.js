@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import {connect} from "react-redux"
 
 import TopNavBar from "../components/TopNavBar";
-import {fetchLocListIfNeeded} from "../actions/fetchLocationActions";
+import {fetchLocListIfNeeded} from "../actions/fetchActions";
 
 class LocationEdit extends Component {
     static propTypes = {

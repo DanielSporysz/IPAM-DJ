@@ -4,7 +4,7 @@ import {connect} from "react-redux"
 import {Link} from "react-router-dom";
 
 import TopNavBar from "../components/TopNavBar";
-import {fetchDeviceListIfNeeded} from "../actions/fetchDeviceActions";
+import {fetchDeviceListIfNeeded} from "../actions/fetchActions";
 import Table from "../components/Table";
 
 import EditImage from "../icons/edit.svg";
