@@ -26,11 +26,11 @@ class LocationList extends Component {
         for (const itemId in items) {
             items[itemId]["id"] = itemId;
             items[itemId]["options"] =
-                <div>
-                    <Link to={"/location/" + itemId + "/edit"} key={itemId}>
+                <div key={itemId + "options"}>
+                    <Link key={itemId + "edit"} to={"/location/" + itemId + "/edit"}>
                         <img className="edit" src={EditImage} alt="edit"/>
                     </Link>
-                    <Link to={"/location/" + itemId + "/delete"} key={itemId}>
+                    <Link key={itemId + "delete"} to={"/location/" + itemId + "/delete"}>
                         <img className="delete" src={DeleteImage} alt="delete"/>
                     </Link>
                 </div>;
