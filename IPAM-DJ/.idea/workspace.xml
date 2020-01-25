@@ -2,14 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c83e660f-1d13-4988-8cad-d6e73752d8b8" name="Default Changelist" comment="loc fetching reducers, viewing list of locations, viewing location, deleted test reducers, renamed components &quot;+List&quot;">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database.rules.json" beforeDir="false" afterPath="$PROJECT_DIR$/database.rules.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/TestFirebase.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/TestFirebase.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
   </component>
   <component name="FavoritesManager">
     <favorites_list name="IPAM-DJ" />
@@ -22,7 +25,15 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
   </component>
   <component name="ProjectId" id="1WQyeunxYv4X8JAFU0NuGLrLHP4" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -36,14 +47,22 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/actions" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="inlay.hints" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/containers" />
+      <recent name="$PROJECT_DIR$/src/components" />
       <recent name="C:\Users\Daniel\Desktop\IPAM-DJ\IPAM-DJ\src\containers" />
       <recent name="C:\Users\danie\Desktop\ReactGUI\IPAM-DJ\src\styles" />
       <recent name="C:\Users\danie\Desktop\ReactGUI\IPAM-DJ\src\components" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/actions" />
+      <recent name="$PROJECT_DIR$/src/components" />
+      <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
   <component name="ServiceViewManager">
@@ -84,7 +103,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -123,11 +144,17 @@
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1579169230406" />
     <state width="1993" height="294" key="GridCell.Tab.0.right/0.0.2048.1112@0.0.2048.1112" timestamp="1579175165998" />
-    <state x="657" y="333" key="com.intellij.ide.util.TipDialog" timestamp="1579175101845">
-      <screen x="0" y="0" width="2048" height="1112" />
+    <state x="-1159" y="-367" key="SettingsEditor" timestamp="1579963286696">
+      <screen x="-2535" y="-534" width="2535" height="1057" />
+    </state>
+    <state x="-1159" y="-367" key="SettingsEditor/0.23.1280.777/-2535.-534.2535.1057@-2535.-534.2535.1057" timestamp="1579963286696" />
+    <state x="-1722" y="-217" key="com.intellij.ide.util.TipDialog" timestamp="1579963242344">
+      <screen x="-2535" y="-534" width="2535" height="1057" />
     </state>
     <state x="493" y="247" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1579160841420" />
     <state x="657" y="333" key="com.intellij.ide.util.TipDialog/0.0.2048.1112@0.0.2048.1112" timestamp="1579175101845" />
+    <state x="-1722" y="-217" key="com.intellij.ide.util.TipDialog/0.23.1280.777/-2535.-534.2535.1057@-2535.-534.2535.1057" timestamp="1579963242344" />
+    <state x="-1739" y="-371" key="com.intellij.ide.util.TipDialog/0.23.1280.777/-2560.-688.2560.1057@-2560.-688.2560.1057" timestamp="1579873983059" />
     <state x="802" y="449" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1579195621776">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
