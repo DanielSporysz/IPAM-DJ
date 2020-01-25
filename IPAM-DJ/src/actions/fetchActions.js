@@ -1,4 +1,9 @@
-import {RECEIVE_DEVICE_LIST, RECEIVE_LOCATION_LIST, RECEIVE_NAT_LIST, RECEIVE_SUBNET_LIST, RECEIVE_RACK_LIST, RECEIVE_VLAN_LIST} from "./types"
+import {
+    RECEIVE_DEVICE_LIST, RECEIVE_LOCATION_LIST,
+    RECEIVE_NAT_LIST, RECEIVE_SUBNET_LIST,
+    RECEIVE_RACK_LIST, RECEIVE_VLAN_LIST,
+    RECEIVE_NAMESERVER_LIST
+} from "./types"
 import firebase from "firebase";
 
 const MAX_AGE = 30 * 1000;
@@ -44,6 +49,12 @@ export const fetchSubnetListIfNeeded = () => (dispatch, getState) => {
     }
 };
 
+export const fetchNameServerListIfNeeded = () => (dispatch, getState) => {
+    if (shouldListUpdate(getState().fetchReducer.nameServerList, getState().fetchReducer.nameServerListReceivedAt)) {
+        dispatch(fetchNameServerList());
+    }
+};
+
 const shouldListUpdate = (items, updatedAt) => {
     return items || !updatedAt || new Date() - updatedAt > MAX_AGE;
 };
@@ -75,6 +86,10 @@ const fetchRackList = () => dispatch => {
 
 const fetchVLANList = () => dispatch => {
     dispatch(makeRequest('vlan', RECEIVE_VLAN_LIST));
+};
+
+const fetchNameServerList = () => dispatch => {
+    dispatch(makeRequest('vlan', RECEIVE_NAMESERVER_LIST));
 };
 
 const makeRequest = (src, actionType) => dispatch => {

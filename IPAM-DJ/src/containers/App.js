@@ -9,6 +9,7 @@ import NATList from "./NATList";
 import RackList from "./RackList";
 import VLANList from "./VLANList";
 import SubnetList from "./SubnetList";
+import NameServerList from "./NameServerList";
 import TestFirebase from "./TestFirebase";
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
                     <Route path="/location/:id/delete" component={LocationDelete}/>
                     <Route exact path="/rack" component={RackList}/>
                     <Route exact path="/subnet" component={SubnetList}/>
+                    <Route exact path="/name-server" component={NameServerList}/>
                     <Route exact path="/fb" component={TestFirebase}/>
                 </Switch>
             </Router>

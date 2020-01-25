@@ -42,7 +42,9 @@ class SubnetList extends Component {
                 {this.props.isSubnetListReady ?
                     <div>
                         List of all subnet:
-                        <Table items={items} labels={["id", "about", "devices", "loc", "size", "options"]}/>
+                        <Table items={items} labels={["id", "about", "device",
+                            "dhcp", "dmz", "ip", "loc", "mask", "nameservers",
+                            "routable", "vlan", "options"]}/>
                     </div>
                     : "Fetching list of subnets..."}
             </div>

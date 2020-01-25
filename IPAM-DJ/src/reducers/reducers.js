@@ -2,8 +2,10 @@ import {
     RECEIVE_DEVICE_LIST,
     RECEIVE_LOCATION_LIST,
     RECEIVE_NAT_LIST,
-    RECEIVE_RACK_LIST, RECEIVE_SUBNET_LIST,
-    RECEIVE_VLAN_LIST
+    RECEIVE_RACK_LIST,
+    RECEIVE_SUBNET_LIST,
+    RECEIVE_VLAN_LIST,
+    RECEIVE_NAMESERVER_LIST
 } from "../actions/types"
 
 export const fetchReducer = (state = {}, action) => {
@@ -49,6 +51,13 @@ export const fetchReducer = (state = {}, action) => {
                 subnetList: action.items,
                 subnetListReceivedAt: action.receivedAt,
                 isSubnetListReady: true
+            };
+        case RECEIVE_NAMESERVER_LIST:
+            return {
+                ...state,
+                nameServerList: action.items,
+                nameServerListReceivedAt: action.receivedAt,
+                isNameServerListReady: true
             };
         default:
             return state;

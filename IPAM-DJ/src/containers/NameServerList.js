@@ -4,33 +4,33 @@ import {connect} from "react-redux"
 import {Link} from "react-router-dom";
 
 import TopNavBar from "../components/TopNavBar";
-import {fetchDeviceListIfNeeded} from "../actions/fetchActions";
+import {fetchNameServerListIfNeeded} from "../actions/fetchActions";
 import Table from "../components/Table";
 
 import EditImage from "../icons/edit.svg";
 import DeleteImage from "../icons/delete.svg";
 
-class DeviceList extends Component {
+class NameServerList extends Component {
     static propTypes = {
-        deviceList: PropTypes.object,
-        isDeviceListReady: PropTypes.bool,
+        nameServerList: PropTypes.object,
+        isNameServerListReady: PropTypes.bool,
     };
 
     componentDidMount() {
-        this.props.fetchDeviceListIfNeeded();
+        this.props.fetchNameServerListIfNeeded();
     }
 
     render() {
         // Add missing values
-        let items = this.props.deviceList;
+        let items = this.props.nameServerList;
         for (const itemId in items) {
             items[itemId]["id"] = itemId;
             items[itemId]["options"] =
                 <div key={itemId + "options"}>
-                    <Link key={itemId + "edit"} to={"/device/" + itemId + "/edit"}>
+                    <Link key={itemId + "edit"} to={"/subnet/" + itemId + "/edit"}>
                         <img className="edit" src={EditImage} alt="edit"/>
                     </Link>
-                    <Link key={itemId + "delete"} to={"/device/" + itemId + "/delete"}>
+                    <Link key={itemId + "delete"} to={"/subnet/" + itemId + "/delete"}>
                         <img className="delete" src={DeleteImage} alt="delete"/>
                     </Link>
                 </div>;
@@ -39,13 +39,12 @@ class DeviceList extends Component {
         return (
             <div>
                 <TopNavBar/>
-                {this.props.isDeviceListReady ?
+                {this.props.isNameServerListReady ?
                     <div>
-                        List of all devices:
-                        <Table items={items} labels={["id", "about", "gateway",
-                            "hostname", "ip", "loc", "mac", "nat", "owner", "subnet", "options"]}/>
+                        List of all subnet:
+                        <Table items={items} labels={["id", "nameserver", "options"]}/>
                     </div>
-                    : "Fetching list of devices..."}
+                    : "Fetching list of nameservers..."}
             </div>
         );
     }
@@ -53,9 +52,9 @@ class DeviceList extends Component {
 
 const mapStateToProps = state => {
     return {
-        deviceList: state.fetchReducer.deviceList,
-        isDeviceListReady: state.fetchReducer.isDeviceListReady
+        nameServerList: state.fetchReducer.nameServerList,
+        isNameServerListReady: state.fetchReducer.isNameServerListReady
     }
 };
 
-export default connect(mapStateToProps, {fetchDeviceListIfNeeded})(DeviceList)
+export default connect(mapStateToProps, {fetchNameServerListIfNeeded})(NameServerList)

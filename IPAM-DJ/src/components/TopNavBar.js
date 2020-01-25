@@ -13,6 +13,7 @@ function TopNavBar() {
                 <Link to={"/location"} className="topNavBarLink">Location</Link>
                 <Link to={"/rack"} className="topNavBarLink">Rack</Link>
                 <Link to={"/subnet"} className="topNavBarLink">Subnet</Link>
+                <Link to={"/name-server"} className="topNavBarLink">Nameserver</Link>
                 <Link to={"/fb"} className="topNavBarLink">Fire</Link>
             </div>
             <hr/>
