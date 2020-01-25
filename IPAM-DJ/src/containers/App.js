@@ -8,6 +8,7 @@ import NATList from "./NATList";
 import RackList from "./RackList";
 import VLANList from "./VLANList";
 import SubnetList from "./SubnetList";
+import TestFirebase from "./TestFirebase";
 
 function App() {
     return (<div>
@@ -21,6 +22,7 @@ function App() {
                     <Route path="/location/:id" component={ViewLocation}/>
                     <Route exact path="/rack" component={RackList}/>
                     <Route exact path="/subnet" component={SubnetList}/>
+                    <Route exact path="/fb" component={TestFirebase}/>
                 </Switch>
             </Router>
         </div>
