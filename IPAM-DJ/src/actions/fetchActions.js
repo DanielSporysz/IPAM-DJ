@@ -9,43 +9,43 @@ const MAX_AGE = 30 * 1000;
  */
 
 export const fetchDeviceListIfNeeded = () => (dispatch, getState) => {
-    if (shouldListUpdate(getState().fetchReducer.deviceListReceivedAt)) {
+    if (shouldListUpdate(getState().fetchReducer.deviceList, getState().fetchReducer.deviceListReceivedAt)) {
         dispatch(fetchDeviceList());
     }
 };
 
 export const fetchLocListIfNeeded = () => (dispatch, getState) => {
-    if (shouldListUpdate(getState().fetchReducer.locListReceivedAt)) {
+    if (shouldListUpdate(getState().fetchReducer.LocList, getState().fetchReducer.locListReceivedAt)) {
         dispatch(fetchLocList());
     }
 };
 
 export const fetchNATListIfNeeded = () => (dispatch, getState) => {
-    if (shouldListUpdate(getState().fetchReducer.NATListReceivedAt)) {
+    if (shouldListUpdate(getState().fetchReducer.NATList, getState().fetchReducer.NATListReceivedAt)) {
         dispatch(fetchNATList());
     }
 };
 
 export const fetchVLANListIfNeeded = () => (dispatch, getState) => {
-    if (shouldListUpdate(getState().fetchReducer.VLANListReceivedAt)) {
+    if (shouldListUpdate(getState().fetchReducer.VLANList, getState().fetchReducer.VLANListReceivedAt)) {
         dispatch(fetchVLANList());
     }
 };
 
 export const fetchRackListIfNeeded = () => (dispatch, getState) => {
-    if (shouldListUpdate(getState().fetchReducer.rackListReceivedAt)) {
+    if (shouldListUpdate(getState().fetchReducer.rackList, getState().fetchReducer.rackListReceivedAt)) {
         dispatch(fetchRackList());
     }
 };
 
 export const fetchSubnetListIfNeeded = () => (dispatch, getState) => {
-    if (shouldListUpdate(getState().fetchReducer.subnetListReceivedAt)) {
+    if (shouldListUpdate(getState().fetchReducer.subnetList, getState().fetchReducer.subnetListReceivedAt)) {
         dispatch(fetchSubnetList());
     }
 };
 
-const shouldListUpdate = (updatedAt) => {
-    return !updatedAt || new Date() - updatedAt > MAX_AGE;
+const shouldListUpdate = (items, updatedAt) => {
+    return items || !updatedAt || new Date() - updatedAt > MAX_AGE;
 };
 
 /*
