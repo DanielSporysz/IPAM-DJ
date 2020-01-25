@@ -42,7 +42,7 @@ class VLANList extends Component {
                 {this.props.isVLANListReady ?
                     <div>
                         List of all VLAN:
-                        <Table items={items} labels={["id", "about", "name", "subnets"]}/>
+                        <Table items={items} labels={["id", "about", "name", "subnets", "options"]}/>
                     </div>
                     : "Fetching list of VLANs..."}
             </div>

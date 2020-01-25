@@ -42,7 +42,7 @@ class RackList extends Component {
                 {this.props.isRackListReady ?
                     <div>
                         List of all racks:
-                        <Table items={items} labels={["id", "about", "devices", "loc", "size"]}/>
+                        <Table items={items} labels={["id", "about", "devices", "loc", "size", "options"]}/>
                     </div>
                     : "Fetching list of racks..."}
             </div>
