@@ -41,8 +41,7 @@ class LocationList extends Component {
                 <TopNavBar/>
                 {this.props.isLocListReady ?
                     <div>
-                        List of all locations:
-                        <Table items={items} labels={["id", "name", "about", "options"]}/>
+                        <Table name="locations" items={items} labels={["id", "name", "about", "options"]}/>
                     </div>
                     : "Fetching list of locations..."}
             </div>

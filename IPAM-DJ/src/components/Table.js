@@ -3,6 +3,9 @@ import React from "react"
 import TableRow from "./TableRow";
 
 function Table(props) {
+    const table_name = props.name;
+    console.log(props)
+
     const table_labels = props.labels.map((value) => {
         /* do not display "options" label as options are only visible when user hovers over the row */
         if (value !== "options") {
@@ -21,8 +24,9 @@ function Table(props) {
 
     return <div>
         <table>
+            <caption>List of all {table_name}:</caption>
             <thead>
-            <tr>{table_labels}</tr>
+            <tr>{table_labels}<th></th></tr>
             </thead>
             <tbody>{table_body}</tbody>
         </table>

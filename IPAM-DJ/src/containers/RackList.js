@@ -41,8 +41,7 @@ class RackList extends Component {
                 <TopNavBar/>
                 {this.props.isRackListReady ?
                     <div>
-                        List of all racks:
-                        <Table items={items} labels={["id", "about", "devices", "loc", "size", "options"]}/>
+                        <Table name="racks" items={items} labels={["id", "about", "devices", "loc", "size", "options"]}/>
                     </div>
                     : "Fetching list of racks..."}
             </div>
