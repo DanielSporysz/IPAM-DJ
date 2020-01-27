@@ -35,7 +35,7 @@ class LocationEdit extends Component {
 
     importValues = () => {
         const locationID = this.props.match.params.id;
-        if(this.props.isLocListReady && Object.keys(this.props.locList).includes(this.state.id)){
+        if(this.props.isLocListReady && Object.keys(this.props.locList).includes(locationID)){
             this.setState({
                 id: locationID,
                 name: this.props.locList[locationID]["name"],
