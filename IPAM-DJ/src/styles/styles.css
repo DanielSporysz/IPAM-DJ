@@ -14,10 +14,35 @@ body {
 }
 
 div.topNavBar {
-    background: #415A77;
+    background: #023459;
     text-align: center;
-    padding: 15px;
+    padding-top: 15px;
     /*color: white;*/
+}
+
+div.topNavBar div {
+    position: sticky;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    top: 0;
+    position: sticky;
+    position: -webkit-sticky;
+}
+
+li {
+    display: inline-block;
+    text-align: center;
+    padding: 14px 16px;
+    background: #003459;
+    border: 0;
+}
+
+li:hover {
+    background: #7390A4;
 }
 
 .title {
@@ -30,8 +55,12 @@ h2.title {
 }
 
 a {
-    margin: 5px;
+    padding: 0px;
     /*color: white;*/
+}
+
+.Table {
+    overflow-x: auto;
 }
 
 table {
@@ -52,6 +81,7 @@ tr:nth-child(odd){background-color: #54565B}
 
 th {
     position: sticky;
+    position: -webkit-sticky;
     top: 0;
     background-color: #003459;
     min-width: 60px;
@@ -63,6 +93,24 @@ td, th {
     padding: 8px;
 }
 
+
+td {
+    word-break: break-all;
+    max-width: 60px;
+    min-width: 20px;
+}
+
+td div a img {
+    margin: 5px;
+    visibility: hidden;
+}
+
+tr:hover td div a img {
+    margin: 5px;
+    visibility: visible;
+    transition: 0.3s;
+}
+
 tr:hover {
     background-color: #ddd;
     transition: 0.3s;
@@ -71,10 +119,6 @@ tr:hover {
 tr:hover td {
     color: black;
     transition: 0.3s;
-}
-
-tr:hover img.delete {
-    display: hidden;
 }
 
 /*td {
