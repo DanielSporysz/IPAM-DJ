@@ -2,9 +2,9 @@ import React, {Component} from "react"
 import PropTypes from "prop-types"
 import {connect} from "react-redux"
 
-import TopNavBar from "../components/TopNavBar";
-import {fetchLocListIfNeeded} from "../actions/fetchActions";
-import {updateLoc} from "../actions/updateActions";
+import TopNavBar from "../../components/TopNavBar";
+import {fetchLocListIfNeeded} from "../../actions/fetchActions";
+import {updateLoc} from "../../actions/updateActions";
 import {Link} from "react-router-dom";
 
 class LocationEdit extends Component {
@@ -71,6 +71,9 @@ class LocationEdit extends Component {
                 <div>
                     <TopNavBar currentPage={this.props.match}/>
                     Location <b>{this.state.id}</b> has been updated.
+                    <Link to={"/location"}>
+                        <button>Return</button>
+                    </Link>
                 </div>
             )
         }

@@ -3,9 +3,9 @@ import PropTypes from "prop-types"
 import {connect} from "react-redux"
 import {Link} from "react-router-dom";
 
-import TopNavBar from "../components/TopNavBar";
-import {fetchLocListIfNeeded} from "../actions/fetchActions";
-import {deleteLoc} from "../actions/deleteActions";
+import TopNavBar from "../../components/TopNavBar";
+import {fetchLocListIfNeeded} from "../../actions/fetchActions";
+import {deleteLoc} from "../../actions/deleteActions";
 
 class LocationEdit extends Component {
     constructor(props) {

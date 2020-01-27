@@ -3,12 +3,12 @@ import PropTypes from "prop-types"
 import {connect} from "react-redux"
 import {Link} from "react-router-dom";
 
-import TopNavBar from "../components/TopNavBar";
-import {fetchLocListIfNeeded} from "../actions/fetchActions";
-import Table from "../components/Table";
+import TopNavBar from "../../components/TopNavBar";
+import {fetchLocListIfNeeded} from "../../actions/fetchActions";
+import Table from "../../components/Table";
 
-import EditImage from "../icons/edit.svg";
-import DeleteImage from "../icons/delete.svg";
+import EditImage from "../../icons/edit.svg";
+import DeleteImage from "../../icons/delete.svg";
 
 class LocationList extends Component {
     static propTypes = {
@@ -39,6 +39,9 @@ class LocationList extends Component {
         return (
             <div>
                 <TopNavBar currentPage={this.props.match}/>
+                <Link to={"/create/location"}>
+                    <button>Add new location</button>
+                </Link>
                 {this.props.isLocListReady ?
                     <div>
                         <Table items={items}

@@ -2,9 +2,10 @@ import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import React from "react";
 import Home from "./Home";
 import DeviceList from "./DeviceList";
-import Location from "./LocationList";
-import LocationEdit from "./LocationEdit";
-import LocationDelete from "./LocationDelete";
+import Location from "./location/LocationList";
+import LocationAdd from "./location/LocationAdd";
+import LocationEdit from "./location/LocationEdit";
+import LocationDelete from "./location/LocationDelete";
 import NATList from "./NATList";
 import RackList from "./RackList";
 import VLANList from "./VLANList";
@@ -25,6 +26,7 @@ function App() {
                     <Route exact path="/NATList" component={NATList}/>
 
                     <Route exact path="/location" component={Location}/>
+                    <Route exact path="/create/location" component={LocationAdd}/>
                     <Route path="/location/:id/edit" component={LocationEdit}/>
                     <Route path="/location/:id/delete" component={LocationDelete}/>
 
