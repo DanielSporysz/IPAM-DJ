@@ -44,7 +44,7 @@ class SubnetList extends Component {
                         List of all subnet:
                         <Table items={items} labels={["id", "about", "device",
                             "dhcp", "dmz", "ip", "loc", "mask", "nameservers",
-                            "routable", "vlan", "options"]}/>
+                            "routable", "options"]}/>
                     </div>
                     : "Fetching list of subnets..."}
             </div>
