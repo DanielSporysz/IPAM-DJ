@@ -7,7 +7,7 @@ import {fetchLocListIfNeeded} from "../actions/fetchActions";
 
 class LocationEdit extends Component {
     static propTypes = {
-        LocList: PropTypes.object,
+        locList: PropTypes.object,
         isLocListReady: PropTypes.bool
     };
 
@@ -21,7 +21,7 @@ class LocationEdit extends Component {
             <div>
                 <TopNavBar/>
                 {this.props.isLocListReady ?
-                    Object.keys(this.props.LocList).includes(locationID) ?
+                    Object.keys(this.props.locList).includes(locationID) ?
                         <div>Ask for confirmation to <b>delete location</b> {locationID}</div> :
                         "There's no such location in the database"
                     : "Fetching list of locations..."}
@@ -32,7 +32,7 @@ class LocationEdit extends Component {
 
 const mapStateToProps = state => {
     return {
-        LocList: state.fetchReducer.LocList,
+        locList: state.fetchReducer.locList,
         isLocListReady: state.fetchReducer.isLocListReady
     }
 };
