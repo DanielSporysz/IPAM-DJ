@@ -6,14 +6,13 @@ import TopNavBar from "../components/TopNavBar";
 import {fetchLocListIfNeeded} from "../actions/fetchActions";
 import {updateLoc} from "../actions/updateActions";
 
-
 class LocationEdit extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            name:"",
-            about:"",
-            formSent:false
+            name: "",
+            about: "",
+            formSent: false
         }
     }
 
@@ -23,13 +22,25 @@ class LocationEdit extends Component {
     };
 
     componentDidMount() {
+        this.props.fetchLocListIfNeeded();
+
+        this.importValues();
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (!prevProps.isLocListReady && this.props.isLocListReady) {
+            this.importValues();
+        }
+    }
+
+    importValues = () => {
         const locationID = this.props.match.params.id;
         this.setState({
-            id: locationID
+            id: locationID,
+            name: this.props.locList[locationID]["name"],
+            about: this.props.locList[locationID]["about"]
         });
-
-        this.props.fetchLocListIfNeeded()
-    }
+    };
 
     updateInput = (e) => {
         this.setState({
@@ -52,7 +63,7 @@ class LocationEdit extends Component {
     };
 
     render() {
-        if(this.state.formSent){
+        if (this.state.formSent) {
             return (
                 <div>
                     <TopNavBar/>

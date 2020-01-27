@@ -56,7 +56,7 @@ export const fetchNameServerListIfNeeded = () => (dispatch, getState) => {
 };
 
 const shouldListUpdate = (items, updatedAt) => {
-    return !items || ( !updatedAt && new Date() - !updatedAt > MAX_AGE);
+    return !items || (!updatedAt && new Date() - !updatedAt > MAX_AGE);
 };
 
 /*

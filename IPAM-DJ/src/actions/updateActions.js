@@ -7,6 +7,6 @@ export const updateLoc = (locID, locData) => dispatch => {
         .doc(locID)
         .set(locData)
         .then(dispatch({
-            type:INVALIDATE_LOCATION_LIST
+            type: INVALIDATE_LOCATION_LIST
         }));
 };
