@@ -5,6 +5,7 @@ import {connect} from "react-redux"
 import TopNavBar from "../components/TopNavBar";
 import {fetchLocListIfNeeded} from "../actions/fetchActions";
 import {updateLoc} from "../actions/updateActions";
+import {Link} from "react-router-dom";
 
 class LocationEdit extends Component {
     constructor(props) {
@@ -35,7 +36,7 @@ class LocationEdit extends Component {
 
     importValues = () => {
         const locationID = this.props.match.params.id;
-        if(this.props.isLocListReady && Object.keys(this.props.locList).includes(locationID)){
+        if (this.props.isLocListReady && Object.keys(this.props.locList).includes(locationID)) {
             this.setState({
                 id: locationID,
                 name: this.props.locList[locationID]["name"],
@@ -98,6 +99,9 @@ class LocationEdit extends Component {
                                 />
                                 <button type="submit" onClick={this.updateLocation}>Update</button>
                             </form>
+                            <Link to={"/location"}>
+                                <button>Return</button>
+                            </Link>
                         </div> :
                         "There's no such location in the database"
                     : "Fetching list of locations..."}
