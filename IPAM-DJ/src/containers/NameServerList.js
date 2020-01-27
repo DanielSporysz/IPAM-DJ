@@ -41,8 +41,7 @@ class NameServerList extends Component {
                 <TopNavBar/>
                 {this.props.isNameServerListReady ?
                     <div>
-                        List of all subnet:
-                        <Table items={items} labels={["id", "nameserver", "options"]}/>
+                        <Table items={items} labels={["id", "nameserver", "options"]} caption="List of all nameservers:"/>
                     </div>
                     : "Fetching list of nameservers..."}
             </div>

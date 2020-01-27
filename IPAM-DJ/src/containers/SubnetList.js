@@ -41,10 +41,12 @@ class SubnetList extends Component {
                 <TopNavBar/>
                 {this.props.isSubnetListReady ?
                     <div>
-                        List of all subnet:
-                        <Table items={items} labels={["id", "about", "device",
-                            "dhcp", "dmz", "ip", "loc", "mask", "nameservers",
-                            "routable", "options"]}/>
+                        <Table items={items}
+                            labels={["id", "about", "device",
+                                "dhcp", "dmz", "ip",
+                                "loc", "mask", "nameservers",
+                                "routable", "options"]}
+                            caption="List of all subnet:"/>
                     </div>
                     : "Fetching list of subnets..."}
             </div>
