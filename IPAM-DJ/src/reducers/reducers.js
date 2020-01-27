@@ -1,5 +1,6 @@
 import {
     RECEIVE_DEVICE_LIST,
+    INVALIDATE_LOCATION_LIST,
     RECEIVE_LOCATION_LIST,
     RECEIVE_NAT_LIST,
     RECEIVE_RACK_LIST,
@@ -16,6 +17,12 @@ export const fetchReducer = (state = {}, action) => {
                 locList: action.items,
                 locListReceivedAt: action.receivedAt,
                 isLocListReady: true
+            };
+        case INVALIDATE_LOCATION_LIST:
+            return {
+                ...state,
+                locList: null,
+                isLocListReady: false
             };
         case RECEIVE_DEVICE_LIST:
             return {

@@ -20,7 +20,7 @@ export const fetchDeviceListIfNeeded = () => (dispatch, getState) => {
 };
 
 export const fetchLocListIfNeeded = () => (dispatch, getState) => {
-    if (shouldListUpdate(getState().fetchReducer.LocList, getState().fetchReducer.locListReceivedAt)) {
+    if (shouldListUpdate(getState().fetchReducer.locList, getState().fetchReducer.locListReceivedAt)) {
         dispatch(fetchLocList());
     }
 };
@@ -56,7 +56,7 @@ export const fetchNameServerListIfNeeded = () => (dispatch, getState) => {
 };
 
 const shouldListUpdate = (items, updatedAt) => {
-    return !items && ( !updatedAt || new Date() - updatedAt > MAX_AGE);
+    return !items || ( !updatedAt && new Date() - !updatedAt > MAX_AGE);
 };
 
 /*
