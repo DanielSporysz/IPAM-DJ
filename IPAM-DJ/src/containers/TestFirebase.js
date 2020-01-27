@@ -3,6 +3,7 @@ import {connect} from "react-redux"
 import firebase from 'firebase'
 
 import TopNavBar from "../components/TopNavBar"
+import firestore from "../components/Firestore"
 
 class TestFirebase  extends React.Component {
     constructor() {

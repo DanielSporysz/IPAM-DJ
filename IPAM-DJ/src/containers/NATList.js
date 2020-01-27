@@ -41,7 +41,8 @@ class NATList extends Component {
                 <TopNavBar/>
                 {this.props.isNATListReady ?
                     <div>
-                        <Table name="NAT" items={items} labels={["id", "device", "ip", "name", "subnet", "options"]}/>
+                        List of all NAT:
+                        <Table items={items} labels={["id", "device", "ip", "name", "subnet", "options"]}/>
                     </div>
                     : "Fetching list of NATs..."}
             </div>

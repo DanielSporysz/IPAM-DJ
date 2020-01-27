@@ -89,7 +89,7 @@ const fetchVLANList = () => dispatch => {
 };
 
 const fetchNameServerList = () => dispatch => {
-    dispatch(makeRequest('nameservers', RECEIVE_NAMESERVER_LIST));
+    dispatch(makeRequest('vlan', RECEIVE_NAMESERVER_LIST));
 };
 
 const makeRequest = (src, actionType) => dispatch => {

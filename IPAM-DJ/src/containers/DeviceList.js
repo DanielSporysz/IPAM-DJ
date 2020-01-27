@@ -41,7 +41,8 @@ class DeviceList extends Component {
                 <TopNavBar/>
                 {this.props.isDeviceListReady ?
                     <div>
-                        <Table name="devices" items={items} labels={["id", "about", "gateway",
+                        List of all devices:
+                        <Table items={items} labels={["id", "about", "gateway",
                             "hostname", "ip", "loc", "mac", "nat", "owner", "subnet", "options"]}/>
                     </div>
                     : "Fetching list of devices..."}

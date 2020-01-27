@@ -41,7 +41,8 @@ class VLANList extends Component {
                 <TopNavBar/>
                 {this.props.isVLANListReady ?
                     <div>
-                        <Table name="VLAN" items={items} labels={["id", "about", "name", "subnets", "options"]}/>
+                        List of all VLAN:
+                        <Table items={items} labels={["id", "about", "name", "subnets", "options"]}/>
                     </div>
                     : "Fetching list of VLANs..."}
             </div>
