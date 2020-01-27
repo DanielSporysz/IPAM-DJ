@@ -16,7 +16,6 @@ body {
 div.topNavBar {
     background: #415A77;
     text-align: center;
-    width: 100%;
     padding: 15px;
     /*color: white;*/
 }
@@ -25,13 +24,14 @@ div.topNavBar {
     font-style: italic;
 }
 
+h2.title {
+    padding: 10px;
+    text-align: center;
+}
+
 a {
     margin: 5px;
     /*color: white;*/
-}
-
-.Table {
-    margin-top: 20px;
 }
 
 table {
@@ -43,7 +43,7 @@ table {
 
 caption {
     text-align: center;
-    padding: 10px 0;
+    padding-bottom: 10px;
     font-size: 32px;
 }
 
@@ -93,3 +93,8 @@ tr:hover th.options img {
 th.options {
     width: 40px;
 }
+
+/*input {
+    background: #F8F9FA;
+    color: #222;
+}*/
