@@ -3,29 +3,93 @@
     text-align: center;
 }
 
-div.topNavBar {
-    text-align: center;
+* {
+    color: #F0F2F5;
+    margin: 0;
+    padding: 0;
 }
 
-a{
-     margin: 5px;
- }
+body {
+    background: #222;
+}
+
+div.topNavBar {
+    background: #415A77;
+    text-align: center;
+    width: 100%;
+    padding: 15px;
+    /*color: white;*/
+}
+
+.title {
+    font-style: italic;
+}
+
+a {
+    margin: 5px;
+    /*color: white;*/
+}
+
+.Table {
+    margin-top: 20px;
+}
 
 table {
-    border-spacing: 0; /* it's crucial to make on-hover options work */
-    background-color: rgba(115, 118, 126, 0.62);
-    margin: 6px;
+    /*border-spacing: 0; /* it's crucial to make on-hover options work */
+    border-collapse: collapse;
+    margin: 25px 2.5%;
+    width: 95%;
 }
 
-table tr:hover {
-    background-color: #ffff99;
+caption {
+    text-align: center;
+    padding: 10px 0;
+    font-size: 32px;
 }
 
-td {
+tr:nth-child(even){background-color: #3e3e3e}
+tr:nth-child(odd){background-color: #54565B}
+
+th {
+    position: sticky;
+    top: 0;
+    background-color: #003459;
+    min-width: 60px;
+}
+
+td, th {
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:hover {
+    background-color: #ddd;
+    transition: 0.3s;
+}
+
+tr:hover td {
+    color: black;
+    transition: 0.3s;
+}
+
+tr:hover img.delete {
+    display: hidden;
+}
+
+/*td {
     padding: 5px;
-}
+}*/
 
 img.delete,
 img.edit {
-    width: 17px;
+    width: 16px;
+}
+
+tr:hover th.options img {
+    display: hidden;
+}
+
+th.options {
+    width: 40px;
 }

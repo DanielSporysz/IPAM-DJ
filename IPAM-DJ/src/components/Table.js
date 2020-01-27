@@ -19,10 +19,13 @@ function Table(props) {
         }
     }
 
-    return <div>
+    const table_caption = props.caption;
+
+    return <div class="Table">
         <table>
+            <caption>{table_caption}</caption>
             <thead>
-            <tr>{table_labels}</tr>
+            <tr>{table_labels}<th class="options"></th></tr>
             </thead>
             <tbody>{table_body}</tbody>
         </table>
