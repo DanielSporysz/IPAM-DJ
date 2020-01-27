@@ -16,7 +16,6 @@ function TopNavBar(props) {
                     <Link to={"/rack"} className="topNavBarLink"><li>Rack</li></Link>
                     <Link to={"/subnet"} className="topNavBarLink"><li>Subnet</li></Link>
                     <Link to={"/name-server"} className="topNavBarLink"><li>Nameserver</li></Link>
-                    <Link to={"/fb"} className="topNavBarLink"><li>Fire</li></Link>
                 </ul>
             </div>
         </div>
