@@ -52,8 +52,8 @@ class NATList extends Component {
 
 const mapStateToProps = state => {
     return {
-        NATList: state.fetchReducer.locList,
-        isNATListReady: state.fetchReducer.isLocListReady
+        NATList: state.fetchReducer.NATList,
+        isNATListReady: state.fetchReducer.isNATListReady
     }
 };
 
