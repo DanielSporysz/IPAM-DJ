@@ -1,16 +1,16 @@
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import React from "react";
 import Home from "./Home";
-import DeviceList from "./DeviceList";
+import DeviceList from "./device/DeviceList";
 import Location from "./location/LocationList";
 import LocationAdd from "./location/LocationAdd";
 import LocationEdit from "./location/LocationEdit";
 import LocationDelete from "./location/LocationDelete";
-import NATList from "./NATList";
-import RackList from "./RackList";
-import VLANList from "./VLANList";
-import SubnetList from "./SubnetList";
-import NameServerList from "./NameServerList";
+import NATList from "./NAT/NATList";
+import RackList from "./rack/RackList";
+import VLANList from "./VLAN/VLANList";
+import SubnetList from "./subnet/SubnetList";
+import NameServerList from "./nameserver/NameServerList";
 import TestFirebase from "./TestFirebase";
 
 function App() {
