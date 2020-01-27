@@ -19,7 +19,7 @@ class LocationEdit extends Component {
         const locationID = this.props.match.params.id;
         return (
             <div>
-                <TopNavBar/>
+                <TopNavBar currentPage={this.props.match}/>
                 {this.props.isLocListReady ?
                     Object.keys(this.props.locList).includes(locationID) ?
                         <div>Ask for confirmation to <b>delete location</b> {locationID}</div> :

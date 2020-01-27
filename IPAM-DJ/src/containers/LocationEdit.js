@@ -68,7 +68,7 @@ class LocationEdit extends Component {
         if (this.state.formSent) {
             return (
                 <div>
-                    <TopNavBar/>
+                    <TopNavBar currentPage={this.props.match}/>
                     Location <b>{this.state.id}</b> has been updated.
                 </div>
             )
@@ -76,7 +76,7 @@ class LocationEdit extends Component {
 
         return (
             <div>
-                <TopNavBar/>
+                <TopNavBar currentPage={this.props.match}/>
                 {this.props.isLocListReady ?
                     Object.keys(this.props.locList).includes(this.state.id) ?
                         <div>
