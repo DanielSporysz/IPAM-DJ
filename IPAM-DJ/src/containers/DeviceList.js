@@ -38,7 +38,7 @@ class DeviceList extends Component {
 
         return (
             <div>
-                <TopNavBar/>
+                <TopNavBar currentPage={this.props.match}/>
                 {this.props.isDeviceListReady ?
                     <div>
                         <Table items={items}
