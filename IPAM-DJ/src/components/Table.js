@@ -21,11 +21,11 @@ function Table(props) {
 
     const table_caption = props.caption;
 
-    return <div class="Table">
+    return <div className="Table">
         <table>
             <caption>{table_caption}</caption>
             <thead>
-            <tr>{table_labels}<th class="options"></th></tr>
+            <tr>{table_labels}<th className="options"></th></tr>
             </thead>
             <tbody>{table_body}</tbody>
         </table>
