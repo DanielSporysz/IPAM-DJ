@@ -38,7 +38,7 @@ class SubnetList extends Component {
 
         return (
             <div>
-                <TopNavBar/>
+                <TopNavBar currentPage={this.props.match}/>
                 {this.props.isSubnetListReady ?
                     <div>
                         <Table items={items}

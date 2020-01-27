@@ -38,7 +38,7 @@ class NameServerList extends Component {
 
         return (
             <div>
-                <TopNavBar/>
+                <TopNavBar currentPage={this.props.match}/>
                 {this.props.isNameServerListReady ?
                     <div>
                         <Table items={items} labels={["id", "nameserver", "options"]} caption="List of all nameservers:"/>

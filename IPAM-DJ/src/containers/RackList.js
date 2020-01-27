@@ -38,7 +38,7 @@ class RackList extends Component {
 
         return (
             <div>
-                <TopNavBar/>
+                <TopNavBar currentPage={this.props.match}/>
                 {this.props.isRackListReady ?
                     <div>
                         <Table items={items}

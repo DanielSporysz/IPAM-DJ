@@ -38,7 +38,7 @@ class VLANList extends Component {
 
         return (
             <div>
-                <TopNavBar/>
+                <TopNavBar currentPage={this.props.match}/>
                 {this.props.isVLANListReady ?
                     <div>
                         <Table items={items}

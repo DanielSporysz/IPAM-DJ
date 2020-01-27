@@ -56,7 +56,7 @@ class TestFirebase  extends React.Component {
     render() {
         return (
             <div>
-                <TopNavBar/>
+                <TopNavBar currentPage={this.props.match}/>
                 <h1>Location test</h1>
                 <form onSubmit={this.addLocation}>
                     <input

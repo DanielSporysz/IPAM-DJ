@@ -38,7 +38,7 @@ class NATList extends Component {
 
         return (
             <div>
-                <TopNavBar/>
+                <TopNavBar currentPage={this.props.match}/>
                 {this.props.isNATListReady ?
                     <div>
                         <Table

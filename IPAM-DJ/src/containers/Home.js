@@ -7,7 +7,7 @@ class Home extends Component{
     render() {
         return (
             <div>
-                <TopNavBar/>
+                <TopNavBar currentPage={this.props.match}/>
                 <h2 class="title">Welcome home! Make yourself feel comfortable!</h2>
             </div>
         );

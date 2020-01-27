@@ -38,7 +38,7 @@ class LocationList extends Component {
 
         return (
             <div>
-                <TopNavBar/>
+                <TopNavBar currentPage={this.props.match}/>
                 {this.props.isLocListReady ?
                     <div>
                         <Table items={items}
