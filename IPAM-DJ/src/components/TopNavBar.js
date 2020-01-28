@@ -2,20 +2,34 @@ import React from "react";
 import {Link} from "react-router-dom";
 
 function TopNavBar(props) {
-    console.log(props.currentPage.path);
+    const pages = {
+        "/": "Home",
+        "/device": "Device",
+        "/VLANList": "VLAN",
+        "/NATList": "NAT",
+        "/location": "Location",
+        "/rack": "Rack",
+        "/subnet": "Subnet",
+        "/name-server": "Nameserver",
+    };
+
+    let links = [];
+    for (const page in pages) {
+        let linkClassName;
+        if (props.currentPage.path !== null && props.currentPage.path === page) {
+            linkClassName = "topNavBarLink selected";
+        } else {
+            linkClassName = "topNavBarLink";
+        }
+        links.push(<Link to={page} className={linkClassName}> {pages[page]} </Link>);
+    }
+
     return (
         <div className="topNavBar">
             <h1 className="title">IPAM-DJ</h1>
             <div>
                 <ul className="links">
-                    <Link to={"/"} className="topNavBarLink"><li>Home</li></Link>
-                    <Link to={"/device"} className="topNavBarLink"><li>Device</li></Link>
-                    <Link to={"/VLANList"} className="topNavBarLink"><li>VLAN</li></Link>
-                    <Link to={"/NATList"} className="topNavBarLink"><li>NAT</li></Link>
-                    <Link to={"/location"} className="topNavBarLink"><li>Location</li></Link>
-                    <Link to={"/rack"} className="topNavBarLink"><li>Rack</li></Link>
-                    <Link to={"/subnet"} className="topNavBarLink"><li>Subnet</li></Link>
-                    <Link to={"/name-server"} className="topNavBarLink"><li>Nameserver</li></Link>
+                    {links}
                 </ul>
             </div>
         </div>
