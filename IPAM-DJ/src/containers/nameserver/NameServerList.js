@@ -27,10 +27,10 @@ class NameServerList extends Component {
             items[itemId]["id"] = itemId;
             items[itemId]["options"] =
                 <div key={itemId + "options"}>
-                    <Link key={itemId + "edit"} to={"/subnet/" + itemId + "/edit"}>
+                    <Link key={itemId + "edit"} to={"/name-server/" + itemId + "/edit"}>
                         <img className="edit" src={EditImage} alt="edit"/>
                     </Link>
-                    <Link key={itemId + "delete"} to={"/subnet/" + itemId + "/delete"}>
+                    <Link key={itemId + "delete"} to={"/name-server/" + itemId + "/delete"}>
                         <img className="delete" src={DeleteImage} alt="delete"/>
                     </Link>
                 </div>;
@@ -48,9 +48,9 @@ class NameServerList extends Component {
                             </Link>
                         </div>
                         <Table items={items}
-                            labels={["id",
-                            "nameserver",
-                            "options"]}/>
+                               labels={["id",
+                                   "nameserver",
+                                   "options"]}/>
                     </div>
                     : "Fetching list of nameservers..."}
             </div>

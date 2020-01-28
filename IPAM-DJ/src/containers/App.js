@@ -23,8 +23,10 @@ import SubnetList from "./subnet/SubnetList";
 
 import NameServerList from "./nameserver/NameServerList";
 import NameServerAdd from "./nameserver/NameServerAdd";
+import NameServerEdit from "./nameserver/NameServerEdit";
 
 import firebase from 'firebase';
+
 const config = {
     apiKey: "AIzaSyB_fln91xB265ISN4xoOZ1U9ZngPZBOsSM",
     authDomain: "ipam-dj.firebaseapp.com",
@@ -65,6 +67,7 @@ function App() {
                     <Route exact path="/subnet" component={SubnetList}/>
 
                     <Route exact path="/name-server" component={NameServerList}/>
+                    <Route exact path="/name-server/:id/edit" component={NameServerEdit}/>
                     <Route exact path="/create/name-server" component={NameServerAdd}/>
                 </Switch>
             </Router>
