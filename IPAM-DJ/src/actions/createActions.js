@@ -1,5 +1,10 @@
 import firebase from "firebase";
-import {INVALIDATE_LOCATION_LIST, INVALIDATE_DEVICE_LIST, INVALIDATE_VLAN_LIST} from "./types";
+import {
+    INVALIDATE_LOCATION_LIST,
+    INVALIDATE_DEVICE_LIST,
+    INVALIDATE_VLAN_LIST,
+    INVALIDATE_NAMESERVER_LIST
+} from "./types";
 
 export const createLoc = (data) => dispatch => {
     dispatch(createItem(data, "locations", INVALIDATE_LOCATION_LIST))
@@ -11,6 +16,10 @@ export const createDevice = (data) => dispatch => {
 
 export const createVLAN = (data) => dispatch => {
     dispatch(createItem(data, "vlan", INVALIDATE_VLAN_LIST))
+};
+
+export const createNameServer = (data) => dispatch => {
+    dispatch(createItem(data, "nameservers", INVALIDATE_NAMESERVER_LIST))
 };
 
 const createItem = (data, tableName, type) => dispatch => {

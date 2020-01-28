@@ -1,5 +1,10 @@
 import firebase from "firebase";
-import {INVALIDATE_LOCATION_LIST, INVALIDATE_DEVICE_LIST, INVALIDATE_VLAN_LIST} from "./types";
+import {
+    INVALIDATE_LOCATION_LIST,
+    INVALIDATE_DEVICE_LIST,
+    INVALIDATE_VLAN_LIST,
+    INVALIDATE_NAMESERVER_LIST
+} from "./types";
 
 export const deleteLoc = (id) => dispatch => {
     dispatch(deleteItem(id, "locations", INVALIDATE_LOCATION_LIST));
@@ -11,6 +16,10 @@ export const deleteDevice = (id) => dispatch => {
 
 export const deleteVLAN = (id) => dispatch => {
     dispatch(deleteItem(id, "vlan", INVALIDATE_VLAN_LIST));
+};
+
+export const deleteNameServer = (id) => dispatch => {
+    dispatch(deleteItem(id, "nameservers", INVALIDATE_NAMESERVER_LIST));
 };
 
 const deleteItem = (id, tableName, type) => dispatch => {

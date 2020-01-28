@@ -1,15 +1,17 @@
 import {
     RECEIVE_DEVICE_LIST,
-    INVALIDATE_DEVICE_LIST,
-    INVALIDATE_LOCATION_LIST,
-    INVALIDATE_VLAN_LIST,
     RECEIVE_LOCATION_LIST,
     RECEIVE_NAT_LIST,
     RECEIVE_RACK_LIST,
     RECEIVE_SUBNET_LIST,
     RECEIVE_VLAN_LIST,
-    RECEIVE_NAMESERVER_LIST
-} from "../actions/types"
+    RECEIVE_NAMESERVER_LIST,
+
+    INVALIDATE_LOCATION_LIST,
+    INVALIDATE_DEVICE_LIST,
+    INVALIDATE_VLAN_LIST,
+    INVALIDATE_NAMESERVER_LIST
+} from "../actions/types";
 
 export const fetchReducer = (state = {}, action) => {
     switch (action.type) {
@@ -79,6 +81,12 @@ export const fetchReducer = (state = {}, action) => {
                 nameServerList: action.items,
                 nameServerListReceivedAt: action.receivedAt,
                 isNameServerListReady: true
+            };
+        case INVALIDATE_NAMESERVER_LIST:
+            return {
+                ...state,
+                nameServerList: null,
+                isNameServerListReady: false
             };
         default:
             return state;
