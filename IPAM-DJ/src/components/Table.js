@@ -19,11 +19,8 @@ function Table(props) {
         }
     }
 
-    const table_caption = props.caption;
-
     return <div className="Table">
         <table>
-            <caption>{table_caption}</caption>
             <thead>
             <tr>{table_labels}<th className="options"></th></tr>
             </thead>
