@@ -1,5 +1,5 @@
 import firebase from "firebase";
-import {INVALIDATE_LOCATION_LIST} from "./types";
+import {INVALIDATE_LOCATION_LIST, INVALIDATE_DEVICE_LIST} from "./types";
 
 export const createLoc = (locData) => dispatch => {
     firebase.firestore()
@@ -7,5 +7,14 @@ export const createLoc = (locData) => dispatch => {
         .add(locData)
         .then(dispatch({
             type: INVALIDATE_LOCATION_LIST
+        }));
+};
+
+export const createDevice = (deviceData) => dispatch => {
+    firebase.firestore()
+        .collection("devices")
+        .add(deviceData)
+        .then(dispatch({
+            type: INVALIDATE_DEVICE_LIST
         }));
 };

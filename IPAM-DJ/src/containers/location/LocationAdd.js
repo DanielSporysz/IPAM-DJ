@@ -41,10 +41,10 @@ class LocationAdd extends Component {
             return (
                 <div>
                     <TopNavBar currentPage={this.props.match}/>
-                    <div class="callbackDiv">
+                    <div className="callbackDiv">
                         <h2>New location has been created.</h2>
                         <Link to={"/location"}>
-                            <button  class="returnButton neutralBtn">Return</button>
+                            <button  className="returnButton neutralBtn">Return</button>
                         </Link>
                     </div>
                 </div>
@@ -54,7 +54,7 @@ class LocationAdd extends Component {
         return (
             <div>
                 <TopNavBar currentPage={this.props.match}/>
-                <div class="formDiv">
+                <div className="formDiv">
                     <h2>Create a new location</h2>
                     <form onSubmit={this.createNewLocation}>
                         <input
@@ -71,11 +71,11 @@ class LocationAdd extends Component {
                             onChange={this.updateInput}
                             value={this.state.about}
                         />
-                        <div class="formFooter">
+                        <div className="formFooter">
                             <Link to={"/location"}>
-                                <button class="returnButton neutralBtn">Cancel</button>
+                                <button className="returnButton neutralBtn">Cancel</button>
                             </Link>
-                            <button class="submitButton goodBtn" type="submit" onClick={this.updateLocation}>Create</button>
+                            <button className="submitButton goodBtn" type="submit">Create</button>
                         </div>
                     </form>
                 </div>
