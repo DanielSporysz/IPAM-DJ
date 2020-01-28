@@ -15,7 +15,7 @@ export const deleteVLAN = (id) => dispatch => {
 
 const deleteItem = (id, tableName, type) => dispatch => {
     firebase.firestore()
-        .collection("tableName")
+        .collection(tableName)
         .doc(id)
         .delete()
         .then(dispatch({
