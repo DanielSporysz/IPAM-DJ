@@ -20,7 +20,9 @@ import VLANDelete from "./VLAN/VLANDelete";
 import NATList from "./NAT/NATList";
 import RackList from "./rack/RackList";
 import SubnetList from "./subnet/SubnetList";
+
 import NameServerList from "./nameserver/NameServerList";
+import NameServerAdd from "./nameserver/NameServerAdd";
 
 import firebase from 'firebase';
 const config = {
@@ -63,6 +65,7 @@ function App() {
                     <Route exact path="/subnet" component={SubnetList}/>
 
                     <Route exact path="/name-server" component={NameServerList}/>
+                    <Route exact path="/create/name-server" component={NameServerAdd}/>
                 </Switch>
             </Router>
         </div>

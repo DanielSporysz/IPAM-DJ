@@ -2,15 +2,14 @@ import React, {Component} from "react"
 import {connect} from "react-redux"
 
 import TopNavBar from "../../components/TopNavBar";
-import {createLoc} from "../../actions/createActions";
+import {createNameServer} from "../../actions/createActions";
 import {Link} from "react-router-dom";
 
-class LocationAdd extends Component {
+class NameServerAdd extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: "",
-            about: "",
+            nameserver: "",
             formSent: false
         }
     }
@@ -21,14 +20,13 @@ class LocationAdd extends Component {
         });
     };
 
-    createNewLocation = (event) => {
+    createNewItem = (event) => {
         event.preventDefault();
 
         const newLoc = {
-            name: this.state.name,
-            about: this.state.about
+            nameserver: this.state.nameserver,
         };
-        this.props.createLoc(newLoc);
+        this.props.createNameServer(newLoc);
 
         this.setState({
             formSent: true
@@ -41,9 +39,9 @@ class LocationAdd extends Component {
                 <div>
                     <TopNavBar currentPage={this.props.match}/>
                     <div className="callbackDiv">
-                        <h2>New location has been created.</h2>
-                        <Link to={"/location"}>
-                            <button  className="returnButton neutralBtn">Return</button>
+                        <h2>New name-server has been created.</h2>
+                        <Link to={"/name-server"}>
+                            <button className="returnButton neutralBtn">Return</button>
                         </Link>
                     </div>
                 </div>
@@ -54,24 +52,17 @@ class LocationAdd extends Component {
             <div>
                 <TopNavBar currentPage={this.props.match}/>
                 <div className="formDiv">
-                    <h2>Create a new location</h2>
-                    <form onSubmit={this.createNewLocation}>
+                    <h2>Create a new name-server</h2>
+                    <form onSubmit={this.createNewItem}>
                         <input
                             type="text"
-                            name="name"
-                            placeholder="name"
+                            name="nameserver"
+                            placeholder="nameserver"
                             onChange={this.updateInput}
-                            value={this.state.name}
-                        />
-                        <input
-                            type="text"
-                            name="about"
-                            placeholder="about"
-                            onChange={this.updateInput}
-                            value={this.state.about}
+                            value={this.state.nameserver}
                         />
                         <div className="formFooter">
-                            <Link to={"/location"}>
+                            <Link to={"/name-server"}>
                                 <button className="returnButton neutralBtn">Cancel</button>
                             </Link>
                             <button className="submitButton goodBtn" type="submit">Create</button>
@@ -83,4 +74,4 @@ class LocationAdd extends Component {
     }
 }
 
-export default connect(null, {createLoc})(LocationAdd)
+export default connect(null, {createNameServer})(NameServerAdd)
