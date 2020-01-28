@@ -5,6 +5,7 @@ import Home from "./Home";
 import DeviceList from "./device/DeviceList";
 import DeviceAdd from "./device/DeviceAdd";
 import DeviceEdit from "./device/DeviceEdit";
+import DeviceDelete from "./device/DeviceDelete";
 
 import Location from "./location/LocationList";
 import LocationAdd from "./location/LocationAdd";
@@ -39,6 +40,7 @@ function App() {
                     <Route exact path="/device" component={DeviceList}/>
                     <Route exact path="/create/device" component={DeviceAdd}/>
                     <Route exact path="/device/:id/edit" component={DeviceEdit}/>
+                    <Route exact path="/device/:id/delete" component={DeviceDelete}/>
 
                     <Route exact path="/VLANList" component={VLANList}/>
 

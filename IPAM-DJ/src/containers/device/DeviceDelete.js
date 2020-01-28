@@ -4,10 +4,10 @@ import {connect} from "react-redux"
 import {Link} from "react-router-dom";
 
 import TopNavBar from "../../components/TopNavBar";
-import {fetchLocListIfNeeded} from "../../actions/fetchActions";
-import {deleteLoc} from "../../actions/deleteActions";
+import {fetchDeviceListIfNeeded} from "../../actions/fetchActions";
+import {deleteDevice} from "../../actions/deleteActions";
 
-class LocationEdit extends Component {
+class DeviceDelete extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -16,16 +16,16 @@ class LocationEdit extends Component {
     }
 
     static propTypes = {
-        locList: PropTypes.object,
-        isLocListReady: PropTypes.bool
+        deviceList: PropTypes.object,
+        isDeviceListReady: PropTypes.bool
     };
 
     componentDidMount() {
-        this.props.fetchLocListIfNeeded();
+        this.props.fetchDeviceListIfNeeded();
     }
 
-    deleteLocation = () => {
-        this.props.deleteLoc(this.props.match.params.id);
+    deleteItem = () => {
+        this.props.deleteDevice(this.props.match.params.id);
 
         this.setState({
             formSent: true
@@ -33,14 +33,14 @@ class LocationEdit extends Component {
     };
 
     render() {
-        const locationID = this.props.match.params.id;
+        const id = this.props.match.params.id;
         if (this.state.formSent) {
             return (
                 <div>
                     <TopNavBar currentPage={this.props.match}/>
                     <div className="callbackDiv">
-                        <h2>Location {locationID} has been deleted.</h2>
-                        <Link to={"/location"}>
+                        <h2>Device {id} has been deleted.</h2>
+                        <Link to={"/device"}>
                             <button className="neutralBtn">Return</button>
                         </Link>
                     </div>
@@ -51,17 +51,17 @@ class LocationEdit extends Component {
         return (
             <div>
                 <TopNavBar currentPage={this.props.match}/>
-                {this.props.isLocListReady ?
-                    Object.keys(this.props.locList).includes(locationID) ?
+                {this.props.isDeviceListReady ?
+                    Object.keys(this.props.deviceList).includes(id) ?
                         <div className="delDiv">
-                            <h2>Are you sure you want to <b>delete</b> location {locationID}?</h2>
-                            <Link to={"/location"}>
+                            <h2>Are you sure you want to <b>delete</b> device {id}?</h2>
+                            <Link to={"/device"}>
                                 <button className="neutralBtn">Cancel</button>
                             </Link>
-                            <button className="badBtn" onClick={this.deleteLocation}>Delete it</button>
+                            <button className="badBtn" onClick={this.deleteItem}>Delete it</button>
                         </div> :
-                        "There's no such location in the database"
-                    : "Fetching list of locations..."}
+                        "There's no such device in the database."
+                    : "Fetching list of devices..."}
             </div>
         );
     }
@@ -69,9 +69,9 @@ class LocationEdit extends Component {
 
 const mapStateToProps = state => {
     return {
-        locList: state.fetchReducer.locList,
-        isLocListReady: state.fetchReducer.isLocListReady
+        deviceList: state.fetchReducer.deviceList,
+        isDeviceListReady: state.fetchReducer.isDeviceListReady
     }
 };
 
-export default connect(mapStateToProps, {fetchLocListIfNeeded, deleteLoc})(LocationEdit)
+export default connect(mapStateToProps, {fetchDeviceListIfNeeded, deleteDevice})(DeviceDelete)
