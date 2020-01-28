@@ -41,15 +41,15 @@ class VLANList extends Component {
                 <TopNavBar currentPage={this.props.match}/>
                 {this.props.isVLANListReady ?
                     <div>
-                        <div class="addDiv">
+                        <div className="addDiv">
                             <h2>List of all VLANs:</h2>
                             <Link to={"/create/VLAN"}>
-                                <button class="neutralBtn">Add new VLAN</button>
+                                <button className="neutralBtn">Add new VLAN</button>
                             </Link>
                         </div>
                         <Table items={items}
-                        labels={["id", "about",
-                            "name", "subnets",
+                        labels={["id", "name",
+                            "about", "subnets",
                             "options"]}/>
                     </div>
                     : "Fetching list of VLANs..."}

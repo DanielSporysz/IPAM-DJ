@@ -2,24 +2,30 @@ import React, {Component} from "react"
 import {connect} from "react-redux"
 
 import TopNavBar from "../../components/TopNavBar";
-import {fetchSubnetListIfNeeded} from "../../actions/fetchActions";
-import {createVLAN} from "../../actions/createActions";
+import {
+    fetchVLANListIfNeeded,
+    fetchSubnetListIfNeeded,
+} from "../../actions/fetchActions";
+import {updateVLAN} from "../../actions/updateActions";
 import {Link} from "react-router-dom";
 import PropTypes from "prop-types";
 import Picker from "../../components/Picker";
 
-class VLANAdd extends Component {
+class VLANEdit extends Component {
 
     static propTypes = {
-        subnetList: PropTypes.object,
-        isSubnetListReady: PropTypes.bool,
+        VLANList: PropTypes.object,
+        isVLANListReady: PropTypes.bool,
+        locList: PropTypes.object,
+        isLocListReady: PropTypes.bool,
     };
 
     constructor(props) {
         super(props);
         this.state = {
-            about: "",
+            id:"",
             name: "",
+            about: "",
             subnets: "",
             formSent: false
         }
@@ -27,7 +33,44 @@ class VLANAdd extends Component {
 
     componentDidMount() {
         this.props.fetchSubnetListIfNeeded();
+        this.props.fetchVLANListIfNeeded();
+
+        this.importValues();
     }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (!prevProps.isVLANListReady && this.props.isVLANListReady) {
+            this.importValues();
+        }
+    }
+
+    importValues() {
+        const id = this.props.match.params.id;
+        if (this.props.isVLANListReady && Object.keys(this.props.VLANList).includes(id)) {
+            this.setState({
+                id: id,
+                name: this.props.VLANList[id]["name"],
+                about: this.props.VLANList[id]["about"],
+                subnets: this.props.VLANList[id]["subnets"]
+            });
+        }
+    }
+
+    sendForm = (event) => {
+        event.preventDefault();
+
+        const newItem = {
+            id: this.state.id,
+            name: this.state.name,
+            about: this.state.about,
+            subnets: this.state.subnets,
+        };
+        this.props.updateVLAN(this.state.id, newItem);
+
+        this.setState({
+            formSent: true
+        });
+    };
 
     handleChange = (e) => {
         const {name, value, type, checked} = e.target;
@@ -40,27 +83,21 @@ class VLANAdd extends Component {
             });
     };
 
-    sendForm = (event) => {
-        event.preventDefault();
-
-        const newDevice = {
-            about: this.state.about,
-            name: this.state.name,
-            subnets: this.state.subnets,
-        };
-        this.props.createVLAN(newDevice);
-
-        this.setState({
-            formSent: true
-        });
-    };
-
     render() {
-        if (!this.props.isSubnetListReady) {
+        if (!this.props.isVLANListReady || !this.props.isSubnetListReady ) {
             return (
                 <div>
                     <TopNavBar currentPage={this.props.match}/>
                     <h2>Loading resources...</h2>
+                </div>
+            )
+        }
+
+        if(this.props.isVLANListReady && !Object.keys(this.props.VLANList).includes(this.state.id)){
+            return (
+                <div>
+                    <TopNavBar currentPage={this.props.match}/>
+                    <h2>There is no VLAN of this id!</h2>
                 </div>
             )
         }
@@ -70,8 +107,8 @@ class VLANAdd extends Component {
                 <div>
                     <TopNavBar currentPage={this.props.match}/>
                     <div className="callbackDiv">
-                        <h2>New VLAN has been created.</h2>
-                        <Link to={"/vlan"}>
+                        <h2>VLAN has been updated.</h2>
+                        <Link to={"/VLAN"}>
                             <button className="returnButton neutralBtn">Return</button>
                         </Link>
                     </div>
@@ -81,14 +118,16 @@ class VLANAdd extends Component {
 
         let subnetOptions = [""];
         for (const subnetIdx in this.props.subnetList) {
-            subnetOptions.push(this.props.subnetList[subnetIdx]["id"]);
+            if(this.props.subnetList.hasOwnProperty(subnetIdx)){
+                subnetOptions.push(this.props.subnetList[subnetIdx]["id"]);
+            }
         }
 
         return (
             <div>
                 <TopNavBar currentPage={this.props.match}/>
                 <div className="formDiv">
-                    <h2>Create a new device</h2>
+                    <h2>Editing VLAN <b>{this.state.id}</b></h2>
                     <form onSubmit={this.sendForm}>
                         Name:
                         <input
@@ -111,12 +150,12 @@ class VLANAdd extends Component {
                             options={subnetOptions}
                             onChange={this.handleChange}
                             value={this.state.subnets}
-                            name={"subnets"}/>
+                            name={"subnet"}/>
                         <div className="formFooter">
                             <Link to={"/VLAN"}>
                                 <button className="returnButton neutralBtn">Cancel</button>
                             </Link>
-                            <button className="submitButton goodBtn" type="submit" onClick={this.sendForm}>Create
+                            <button className="submitButton goodBtn" type="submit" onClick={this.sendForm}>Submit
                             </button>
                         </div>
                     </form>
@@ -128,12 +167,15 @@ class VLANAdd extends Component {
 
 const mapStateToProps = state => {
     return {
+        VLANList: state.fetchReducer.VLANList,
+        isVLANListReady: state.fetchReducer.isVLANListReady,
         subnetList: state.fetchReducer.subnetList,
         isSubnetListReady: state.fetchReducer.isSubnetListReady,
     }
 };
 
 export default connect(mapStateToProps, {
+    fetchVLANListIfNeeded,
     fetchSubnetListIfNeeded,
-    createVLAN
-})(VLANAdd)
+    updateVLAN
+})(VLANEdit)

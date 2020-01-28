@@ -2,6 +2,7 @@ import {
     RECEIVE_DEVICE_LIST,
     INVALIDATE_DEVICE_LIST,
     INVALIDATE_LOCATION_LIST,
+    INVALIDATE_VLAN_LIST,
     RECEIVE_LOCATION_LIST,
     RECEIVE_NAT_LIST,
     RECEIVE_RACK_LIST,
@@ -51,6 +52,12 @@ export const fetchReducer = (state = {}, action) => {
                 VLANList: action.items,
                 VLANListReceivedAt: action.receivedAt,
                 isVLANListReady: true
+            };
+        case INVALIDATE_VLAN_LIST:
+            return {
+                ...state,
+                VLANList: null,
+                isVLANListReady: false
             };
         case RECEIVE_RACK_LIST:
             return {

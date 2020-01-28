@@ -48,11 +48,19 @@ class DeviceList extends Component {
                             </Link>
                         </div>
                         <Table items={items}
-                            labels={["id", "about",
-                            "gateway", "hostname",
-                            "ip", "loc", "mac",
-                            "nat", "owner",
-                            "subnet", "options"]}/>
+                               labels={[
+                                   "id",
+                                   "about",
+                                   "owner",
+                                   "mac",
+                                   "gateway",
+                                   "ip",
+                                   "hostname",
+                                   "nat",
+                                   "subnet",
+                                   "loc",
+                                   "options"
+                               ]}/>
                     </div>
                     : "Fetching list of devices..."}
             </div>
