@@ -41,10 +41,10 @@ class DeviceList extends Component {
                 <TopNavBar currentPage={this.props.match}/>
                 {this.props.isDeviceListReady ?
                     <div>
-                        <div class="addDiv">
+                        <div className="addDiv">
                             <h2>List of all devices:</h2>
                             <Link to={"/create/device"}>
-                                <button class="neutralBtn">Add new device</button>
+                                <button className="neutralBtn">Add new device</button>
                             </Link>
                         </div>
                         <Table items={items}

@@ -2,15 +2,22 @@ import React, {Component} from "react"
 import {connect} from "react-redux"
 
 import TopNavBar from "../../components/TopNavBar";
-import {fetchLocListIfNeeded, fetchSubnetListIfNeeded, fetchNATListIfNeeded} from "../../actions/fetchActions";
-import {createDevice} from "../../actions/createActions";
+import {
+    fetchLocListIfNeeded,
+    fetchSubnetListIfNeeded,
+    fetchNATListIfNeeded,
+    fetchDeviceListIfNeeded
+} from "../../actions/fetchActions";
+import {updateDevice} from "../../actions/updateActions";
 import {Link} from "react-router-dom";
 import PropTypes from "prop-types";
 import Picker from "../../components/Picker";
 
-class DeviceAdd extends Component {
+class DeviceEdit extends Component {
 
     static propTypes = {
+        deviceList: PropTypes.object,
+        isDeviceListReady: PropTypes.bool,
         locList: PropTypes.object,
         isLocListReady: PropTypes.bool,
         subnetList: PropTypes.object,
@@ -39,7 +46,56 @@ class DeviceAdd extends Component {
         this.props.fetchLocListIfNeeded();
         this.props.fetchSubnetListIfNeeded();
         this.props.fetchNATListIfNeeded();
+        this.props.fetchDeviceListIfNeeded();
+
+        this.importValues();
     }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (!prevProps.isDeviceListReady && this.props.isDeviceListReady) {
+            this.importValues();
+        }
+    }
+
+    importValues() {
+        const deviceID = this.props.match.params.id;
+        if (this.props.isDeviceListReady && Object.keys(this.props.deviceList).includes(deviceID)) {
+            this.setState({
+                id: deviceID,
+                about: this.props.deviceList[deviceID]["about"],
+                gateway: this.props.deviceList[deviceID]["gateway"],
+                hostname: this.props.deviceList[deviceID]["hostname"],
+                owner: this.props.deviceList[deviceID]["owner"],
+                ip: this.props.deviceList[deviceID]["ip"],
+                mac: this.props.deviceList[deviceID]["mac"],
+                loc: this.props.deviceList[deviceID]["loc"],
+                nat: this.props.deviceList[deviceID]["nat"],
+                subnet: this.props.deviceList[deviceID]["subnet"]
+            });
+        }
+    }
+
+    sendForm = (event) => {
+        event.preventDefault();
+
+        const newDevice = {
+            id: this.state.id,
+            about: this.state.about,
+            gateway: this.state.gateway,
+            hostname: this.state.hostname,
+            owner: this.state.owner,
+            ip: this.state.ip,
+            mac: this.state.mac,
+            loc: this.state.loc,
+            nat: this.state.nat,
+            subnet: this.state.subnet,
+        };
+        this.props.updateDevice(this.state.id, newDevice);
+
+        this.setState({
+            formSent: true
+        });
+    };
 
     handleChange = (e) => {
         const {name, value, type, checked} = e.target;
@@ -52,33 +108,21 @@ class DeviceAdd extends Component {
             });
     };
 
-    sendForm = (event) => {
-        event.preventDefault();
-
-        const newDevice = {
-            about: this.state.about,
-            gateway: this.state.gateway,
-            hostname: this.state.hostname,
-            owner: this.state.owner,
-            ip: this.state.ip,
-            mac: this.state.mac,
-            loc: this.state.loc,
-            nat: this.state.nat,
-            subnet: this.state.subnet,
-        };
-        this.props.createDevice(newDevice);
-
-        this.setState({
-            formSent: true
-        });
-    };
-
     render() {
         if (!this.props.isLocListReady || !this.props.isSubnetListReady || !this.props.isNATListReady) {
             return (
                 <div>
                     <TopNavBar currentPage={this.props.match}/>
                     <h2>Loading resources...</h2>
+                </div>
+            )
+        }
+
+        if(this.props.isDeviceListReady && !Object.keys(this.props.deviceList).includes(this.state.id)){
+            return (
+                <div>
+                    <TopNavBar currentPage={this.props.match}/>
+                    <h2>There is no device of this id!</h2>
                 </div>
             )
         }
@@ -114,7 +158,7 @@ class DeviceAdd extends Component {
             <div>
                 <TopNavBar currentPage={this.props.match}/>
                 <div className="formDiv">
-                    <h2>Create a new device</h2>
+                    <h2>Editing device <b>{this.state.id}</b></h2>
                     <form onSubmit={this.sendForm}>
                         About:
                         <input
@@ -197,6 +241,8 @@ class DeviceAdd extends Component {
 
 const mapStateToProps = state => {
     return {
+        deviceList: state.fetchReducer.deviceList,
+        isDeviceListReady: state.fetchReducer.isDeviceListReady,
         locList: state.fetchReducer.locList,
         isLocListReady: state.fetchReducer.isLocListReady,
         subnetList: state.fetchReducer.subnetList,
@@ -208,7 +254,8 @@ const mapStateToProps = state => {
 
 export default connect(mapStateToProps, {
     fetchLocListIfNeeded,
-    createDevice,
+    updateDevice,
     fetchSubnetListIfNeeded,
-    fetchNATListIfNeeded
-})(DeviceAdd)
+    fetchNATListIfNeeded,
+    fetchDeviceListIfNeeded
+})(DeviceEdit)
