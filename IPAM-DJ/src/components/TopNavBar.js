@@ -21,7 +21,7 @@ function TopNavBar(props) {
         } else {
             linkClassName = "topNavBarLink";
         }
-        links.push(<Link to={page} className={linkClassName}> {pages[page]} </Link>);
+        links.push(<Link to={page} className={linkClassName}><li>{pages[page]}</li></Link>);
     }
 
     return (

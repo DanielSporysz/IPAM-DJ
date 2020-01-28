@@ -46,12 +46,12 @@ li:hover {
     transition: 0.3s;
 }
 
-li.active {
+.selected li {
     background: #127A16;
 }
 
-li.active:hover {
-    background-color: #45a049;
+.selected li:hover {
+    background: #45a049;
 }
 
 .title {
