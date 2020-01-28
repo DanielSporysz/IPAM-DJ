@@ -24,6 +24,7 @@ import SubnetList from "./subnet/SubnetList";
 import NameServerList from "./nameserver/NameServerList";
 import NameServerAdd from "./nameserver/NameServerAdd";
 import NameServerEdit from "./nameserver/NameServerEdit";
+import NameServerDelete from "./nameserver/NameServerDelete";
 
 import firebase from 'firebase';
 
@@ -68,6 +69,7 @@ function App() {
 
                     <Route exact path="/name-server" component={NameServerList}/>
                     <Route exact path="/name-server/:id/edit" component={NameServerEdit}/>
+                    <Route exact path="/name-server/:id/delete" component={NameServerDelete}/>
                     <Route exact path="/create/name-server" component={NameServerAdd}/>
                 </Switch>
             </Router>
