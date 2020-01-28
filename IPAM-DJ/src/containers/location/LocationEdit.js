@@ -70,10 +70,12 @@ class LocationEdit extends Component {
             return (
                 <div>
                     <TopNavBar currentPage={this.props.match}/>
-                    Location <b>{this.state.id}</b> has been updated.
-                    <Link to={"/location"}>
-                        <button>Return</button>
-                    </Link>
+                    <div class="callbackDiv">
+                        <h2>Location <b>{this.state.id}</b> has been updated.</h2>
+                        <Link to={"/location"}>
+                            <button class="neutralBtn">Return</button>
+                        </Link>
+                    </div>
                 </div>
             )
         }
