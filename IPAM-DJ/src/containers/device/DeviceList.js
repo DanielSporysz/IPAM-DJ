@@ -41,13 +41,18 @@ class DeviceList extends Component {
                 <TopNavBar currentPage={this.props.match}/>
                 {this.props.isDeviceListReady ?
                     <div>
+                        <div class="addDiv">
+                            <h2>List of all devices:</h2>
+                            <Link to={"/create/device"}>
+                                <button class="neutralBtn">Add new device</button>
+                            </Link>
+                        </div>
                         <Table items={items}
                             labels={["id", "about",
                             "gateway", "hostname",
                             "ip", "loc", "mac",
                             "nat", "owner",
-                            "subnet", "options"]}
-                            caption="List of all devices:"/>
+                            "subnet", "options"]}/>
                     </div>
                     : "Fetching list of devices..."}
             </div>

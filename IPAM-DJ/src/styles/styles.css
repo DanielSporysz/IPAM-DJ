@@ -90,15 +90,15 @@ button:hover {
 table {
     /*border-spacing: 0; /* it's crucial to make on-hover options work */
     border-collapse: collapse;
-    margin: 25px 2.5%;
+    margin: 0px 2.5%;
     width: 95%;
 }
 
-caption {
+/*caption {
     text-align: center;
     padding-bottom: 10px;
     font-size: 32px;
-}
+}*/
 
 tr:nth-child(even){background-color: #3e3e3e}
 tr:nth-child(odd){background-color: #54565B}
@@ -159,17 +159,17 @@ th.options {
 }
 
 .addDiv {
-    margin: 30px 2.5% 0 2.5%;
+    margin: 20px 2.5%;
+    padding: 16px 0;    /* center h2 verticaly */
 }
 
 .addDiv h2 {
     display: inline-block;
-    width: 250px;
-    height: 60px;
     padding-left: 40px;
 }
 
 .addDiv button {
+    margin: -16px 0 0 0;    /* fixed centering h2 verticaly problem */
     display: inline-block;
     height: 60px;
     float: right;
