@@ -17,7 +17,6 @@ div.topNavBar {
     background: #023459;
     text-align: center;
     padding-top: 15px;
-    /*color: white;*/
 }
 
 div.topNavBar div {
@@ -43,6 +42,16 @@ li {
 
 li:hover {
     background: #7390A4;
+    color: black;
+    transition: 0.3s;
+}
+
+li.active {
+    background: #127A16;
+}
+
+li.active:hover {
+    background-color: #45a049;
 }
 
 .title {
@@ -57,6 +66,21 @@ h2.title {
 a {
     padding: 0px;
     /*color: white;*/
+}
+
+button {
+    width: 180px;
+    height: 60px;
+    color: #F0F2F5;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #7390A4;
+    color: black;
+    transition: 0.3s;
 }
 
 .Table {
@@ -121,10 +145,6 @@ tr:hover td {
     transition: 0.3s;
 }
 
-/*td {
-    padding: 5px;
-}*/
-
 img.delete,
 img.edit {
     width: 16px;
@@ -138,7 +158,121 @@ th.options {
     width: 40px;
 }
 
-input {
-    background: #F8F9FA;
-    color: #222;
+.addDiv {
+    margin: 30px 2.5% 0 2.5%;
+}
+
+.addDiv h2 {
+    display: inline-block;
+    width: 250px;
+    height: 60px;
+    padding-left: 40px;
+}
+
+.addDiv button {
+    display: inline-block;
+    height: 60px;
+    float: right;
+}
+
+.formDiv {
+    max-width: 500px;
+    width: 75%;
+    margin: 25px auto;
+    display: block;
+    border: 1px solid;
+    border-radius: 4px;
+    padding: 20px;
+}
+
+.formDiv h2 {
+    font-size: 23px;
+    font-style: italic;
+    text-align: center;
+}
+
+.formDiv form {
+    margin: 30px auto 80px auto;
+}
+
+input[type=text], select,
+input[type=password],
+input[type=date]{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: black;
+}
+
+.goodBtn {
+    background: #127A16;
+}
+
+.goodBtn:hover {
+    background-color: #45a049;
+}
+
+.badBtn {
+    background: red;
+}
+
+.badBtn:hover {
+    color: #F0F2F5;
+    background: #A50D0C;
+}
+
+.neutralBtn {
+    background: #023459;
+}
+
+.formFooter {
+    margin-top: 20px;
+}
+
+.formFooter .returnButton {
+    float: left;
+}
+
+.submitButton {
+    float: right;
+}
+
+.callbackDiv {
+    max-width: 500px;
+    width: 75%;
+    margin: 25px auto;
+    display: block;
+    padding: 20px;
+    text-align: center;
+}
+
+.callbackDiv button {
+    margin: 0 30px;
+    margin-top: 20px;
+}
+
+.callbackDiv h2 {
+    font-style: italic;
+}
+
+.delDiv {
+    max-width: 500px;
+    width: 75%;
+    margin: 25px auto;
+    display: block;
+    padding: 20px;
+    text-align: center;
+}
+
+.delDiv button {
+    margin: 0 30px;
+    margin-top: 20px;
+}
+
+.delDiv h2 {
+    font-style: italic;
 }

@@ -41,10 +41,12 @@ class LocationAdd extends Component {
             return (
                 <div>
                     <TopNavBar currentPage={this.props.match}/>
-                    New location has been created.
-                    <Link to={"/location"}>
-                        <button>Return</button>
-                    </Link>
+                    <div class="callbackDiv">
+                        <h2>New location has been created.</h2>
+                        <Link to={"/location"}>
+                            <button  class="returnButton neutralBtn">Return</button>
+                        </Link>
+                    </div>
                 </div>
             )
         }
@@ -52,27 +54,31 @@ class LocationAdd extends Component {
         return (
             <div>
                 <TopNavBar currentPage={this.props.match}/>
-                Create a new location:
-                <form onSubmit={this.createNewLocation}>
-                    <input
-                        type="text"
-                        name="name"
-                        placeholder="name"
-                        onChange={this.updateInput}
-                        value={this.state.name}
-                    />
-                    <input
-                        type="text"
-                        name="about"
-                        placeholder="about"
-                        onChange={this.updateInput}
-                        value={this.state.about}
-                    />
-                    <button type="submit" onClick={this.updateLocation}>Create</button>
-                </form>
-                <Link to={"/location"}>
-                    <button>Return</button>
-                </Link>
+                <div class="formDiv">
+                    <h2>Create a new location</h2>
+                    <form onSubmit={this.createNewLocation}>
+                        <input
+                            type="text"
+                            name="name"
+                            placeholder="name"
+                            onChange={this.updateInput}
+                            value={this.state.name}
+                        />
+                        <input
+                            type="text"
+                            name="about"
+                            placeholder="about"
+                            onChange={this.updateInput}
+                            value={this.state.about}
+                        />
+                        <div class="formFooter">
+                            <Link to={"/location"}>
+                                <button class="returnButton neutralBtn">Cancel</button>
+                            </Link>
+                            <button class="submitButton goodBtn" type="submit" onClick={this.updateLocation}>Create</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         );
     }
