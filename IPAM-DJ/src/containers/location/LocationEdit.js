@@ -83,8 +83,8 @@ class LocationEdit extends Component {
                 <TopNavBar currentPage={this.props.match}/>
                 {this.props.isLocListReady ?
                     Object.keys(this.props.locList).includes(this.state.id) ?
-                        <div>
-                            Editing location <b>{this.state.id}</b>:
+                        <div class="formDiv">
+                            <h2>Editing location <b>{this.state.id}</b>:</h2>
                             <form onSubmit={this.updateLocation}>
                                 <input
                                     type="text"
@@ -100,11 +100,13 @@ class LocationEdit extends Component {
                                     onChange={this.updateInput}
                                     value={this.state.about}
                                 />
-                                <button type="submit" onClick={this.updateLocation}>Update</button>
+                                <div class="formFooter">
+                                    <Link to={"/location"}>
+                                        <button class="returnButton neutralBtn">Cancel</button>
+                                    </Link>
+                                    <button class="submitButton goodBtn" type="submit" onClick={this.updateLocation}>Submit</button>
+                                </div>
                             </form>
-                            <Link to={"/location"}>
-                                <button>Return</button>
-                            </Link>
                         </div> :
                         "There's no such location in the database"
                     : "Fetching list of locations..."}

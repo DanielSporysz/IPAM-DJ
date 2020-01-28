@@ -39,10 +39,12 @@ class LocationEdit extends Component {
             return (
                 <div>
                     <TopNavBar currentPage={this.props.match}/>
-                    Location {locationID} has been deleted.
-                    <Link to={"/location"}>
-                        <button>Return</button>
-                    </Link>
+                    <div class="callbackDiv">
+                        <h2>Location {locationID} has been deleted.</h2>
+                        <Link to={"/location"}>
+                            <button class="neutralBtn">Return</button>
+                        </Link>
+                    </div>
                 </div>
             )
         }
@@ -52,14 +54,11 @@ class LocationEdit extends Component {
                 <TopNavBar currentPage={this.props.match}/>
                 {this.props.isLocListReady ?
                     Object.keys(this.props.locList).includes(locationID) ?
-                        <div>
-                            Are you sure you want to <b>delete</b> location {locationID}?
-                            <button onClick={this.deleteLocation}>Delete it</button>
+                        <div class="delDiv">
+                            <h2>Are you sure you want to <b>delete</b> location {locationID}?</h2>
+                            <button class="badBtn" onClick={this.deleteLocation}>Delete it</button>
                             <Link to={"/location"}>
-                                <button>Cancel</button>
-                            </Link>
-                            <Link to={"/location"}>
-                                <button>Return</button>
+                                <button class="neutralBtn">Cancel</button>
                             </Link>
                         </div> :
                         "There's no such location in the database"

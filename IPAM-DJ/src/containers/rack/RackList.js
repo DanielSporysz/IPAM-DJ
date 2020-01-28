@@ -41,14 +41,19 @@ class RackList extends Component {
                 <TopNavBar currentPage={this.props.match}/>
                 {this.props.isRackListReady ?
                     <div>
+                        <div class="addDiv">
+                            <h2>List of all racks:</h2>
+                            <Link to={"/create/rack"}>
+                                <button class="neutralBtn">Add new rack</button>
+                            </Link>
+                        </div>
                         <Table items={items}
                             labels={["id",
                                 "about",
                                 "devices",
                                 "loc",
                                 "size",
-                                "options"]}
-                            caption="List of all racks:"/>
+                                "options"]}/>
                     </div>
                     : "Fetching list of racks..."}
             </div>
