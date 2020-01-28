@@ -2,7 +2,16 @@ import React from "react";
 import {Link} from "react-router-dom";
 
 function TopNavBar(props) {
-    console.log(props.currentPage.path);
+
+    function renderClassName(param) {
+        switch(param) {
+            case props.currentPage.path:
+                return "topNavBarLink currentNavBarLink";
+            default:
+                return "topNavBarLink";
+        }
+    }
+
     return (
         <div className="topNavBar">
             <h1 className="title">IPAM-DJ</h1>
