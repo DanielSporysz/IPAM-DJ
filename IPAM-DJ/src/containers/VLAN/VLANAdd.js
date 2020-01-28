@@ -2,8 +2,8 @@ import React, {Component} from "react"
 import {connect} from "react-redux"
 
 import TopNavBar from "../../components/TopNavBar";
-import {fetchLocListIfNeeded, fetchSubnetListIfNeeded, fetchNATListIfNeeded} from "../../actions/fetchActions";
-import {createDevice} from "../../actions/createActions";
+import {fetchSubnetListIfNeeded} from "../../actions/fetchActions";
+import {createVLAN} from "../../actions/createActions";
 import {Link} from "react-router-dom";
 import PropTypes from "prop-types";
 import Picker from "../../components/Picker";
@@ -11,34 +11,22 @@ import Picker from "../../components/Picker";
 class VLANAdd extends Component {
 
     static propTypes = {
-        locList: PropTypes.object,
-        isLocListReady: PropTypes.bool,
         subnetList: PropTypes.object,
         isSubnetListReady: PropTypes.bool,
-        NATList: PropTypes.object,
-        isNATListReady: PropTypes.bool,
     };
 
     constructor(props) {
         super(props);
         this.state = {
             about: "",
-            gateway: false,
-            hostname: "",
-            owner: "",
-            ip: "",
-            mac: "",
-            loc: "",
-            nat: "",
+            name: "",
             subnet: "",
             formSent: false
         }
     }
 
     componentDidMount() {
-        this.props.fetchLocListIfNeeded();
         this.props.fetchSubnetListIfNeeded();
-        this.props.fetchNATListIfNeeded();
     }
 
     handleChange = (e) => {
@@ -57,16 +45,10 @@ class VLANAdd extends Component {
 
         const newDevice = {
             about: this.state.about,
-            gateway: this.state.gateway,
-            hostname: this.state.hostname,
-            owner: this.state.owner,
-            ip: this.state.ip,
-            mac: this.state.mac,
-            loc: this.state.loc,
-            nat: this.state.nat,
+            name: this.state.name,
             subnet: this.state.subnet,
         };
-        this.props.createDevice(newDevice);
+        this.props.createVLAN(newDevice);
 
         this.setState({
             formSent: true
@@ -74,7 +56,7 @@ class VLANAdd extends Component {
     };
 
     render() {
-        if (!this.props.isLocListReady || !this.props.isSubnetListReady || !this.props.isNATListReady) {
+        if (!this.props.isSubnetListReady) {
             return (
                 <div>
                     <TopNavBar currentPage={this.props.match}/>
@@ -88,8 +70,8 @@ class VLANAdd extends Component {
                 <div>
                     <TopNavBar currentPage={this.props.match}/>
                     <div className="callbackDiv">
-                        <h2>New device has been created.</h2>
-                        <Link to={"/device"}>
+                        <h2>New VLAN has been created.</h2>
+                        <Link to={"/vlan"}>
                             <button className="returnButton neutralBtn">Return</button>
                         </Link>
                     </div>
@@ -101,14 +83,6 @@ class VLANAdd extends Component {
         for (const subnetIdx in this.props.subnetList) {
             subnetOptions.push(this.props.subnetList[subnetIdx]["id"]);
         }
-        let locOptions = [""];
-        for (const locIdx in this.props.locList) {
-            locOptions.push(this.props.locList[locIdx]["id"]);
-        }
-        let NATOptions = [""];
-        for (const NATIdx in this.props.NATList) {
-            NATOptions.push(this.props.NATList[NATIdx]["id"]);
-        }
 
         return (
             <div>
@@ -116,6 +90,14 @@ class VLANAdd extends Component {
                 <div className="formDiv">
                     <h2>Create a new device</h2>
                     <form onSubmit={this.sendForm}>
+                        Name:
+                        <input
+                            type="text"
+                            name="name"
+                            placeholder="name"
+                            onChange={this.handleChange}
+                            value={this.state.name}
+                        />
                         About:
                         <input
                             type="text"
@@ -124,57 +106,6 @@ class VLANAdd extends Component {
                             onChange={this.handleChange}
                             value={this.state.about}
                         />
-                        Gateway:
-                        <input
-                            type="checkbox"
-                            name="gateway"
-                            onChange={this.handleChange}
-                            checked={this.state.gateway}
-                        />
-                        Hostname:
-                        <input
-                            type="text"
-                            name="hostname"
-                            placeholder="hostname"
-                            onChange={this.handleChange}
-                            value={this.state.hostname}
-                        />
-                        IP:
-                        <input
-                            type="text"
-                            name="ip"
-                            placeholder="ip"
-                            onChange={this.handleChange}
-                            value={this.state.ip}
-                        />
-                        MAC:
-                        <input
-                            type="text"
-                            name="mac"
-                            placeholder="mac"
-                            onChange={this.handleChange}
-                            value={this.state.mac}
-                        />
-                        Owner:
-                        <input
-                            type="text"
-                            name="owner"
-                            placeholder="owner"
-                            onChange={this.handleChange}
-                            value={this.state.owner}
-                        />
-                        Location:
-                        <Picker
-                            options={locOptions}
-                            onChange={this.handleChange}
-                            value={this.state.loc}
-                            name={"loc"}/>
-                        NAT:
-                        <Picker
-                            options={NATOptions}
-                            onChange={this.handleChange}
-                            value={this.state.nat}
-                            name={"nat"}/>
                         Subnet:
                         <Picker
                             options={subnetOptions}
@@ -182,7 +113,7 @@ class VLANAdd extends Component {
                             value={this.state.subnet}
                             name={"subnet"}/>
                         <div className="formFooter">
-                            <Link to={"/device"}>
+                            <Link to={"/VLAN"}>
                                 <button className="returnButton neutralBtn">Cancel</button>
                             </Link>
                             <button className="submitButton goodBtn" type="submit" onClick={this.sendForm}>Create
@@ -197,18 +128,12 @@ class VLANAdd extends Component {
 
 const mapStateToProps = state => {
     return {
-        locList: state.fetchReducer.locList,
-        isLocListReady: state.fetchReducer.isLocListReady,
         subnetList: state.fetchReducer.subnetList,
         isSubnetListReady: state.fetchReducer.isSubnetListReady,
-        NATList: state.fetchReducer.NATList,
-        isNATListReady: state.fetchReducer.isNATListReady
     }
 };
 
 export default connect(mapStateToProps, {
-    fetchLocListIfNeeded,
-    createDevice,
     fetchSubnetListIfNeeded,
-    fetchNATListIfNeeded
+    createVLAN
 })(VLANAdd)

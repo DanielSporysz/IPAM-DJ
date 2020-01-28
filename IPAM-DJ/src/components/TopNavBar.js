@@ -5,8 +5,8 @@ function TopNavBar(props) {
     const pages = {
         "/": "Home",
         "/device": "Device",
-        "/VLANList": "VLAN",
-        "/NATList": "NAT",
+        "/VLAN": "VLAN",
+        "/NAT": "NAT",
         "/location": "Location",
         "/rack": "Rack",
         "/subnet": "Subnet",

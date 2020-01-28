@@ -12,9 +12,11 @@ import LocationAdd from "./location/LocationAdd";
 import LocationEdit from "./location/LocationEdit";
 import LocationDelete from "./location/LocationDelete";
 
+import VLANList from "./VLAN/VLANList";
+import VLANAdd from "./VLAN/VLANAdd";
+
 import NATList from "./NAT/NATList";
 import RackList from "./rack/RackList";
-import VLANList from "./VLAN/VLANList";
 import SubnetList from "./subnet/SubnetList";
 import NameServerList from "./nameserver/NameServerList";
 
@@ -42,9 +44,10 @@ function App() {
                     <Route exact path="/device/:id/edit" component={DeviceEdit}/>
                     <Route exact path="/device/:id/delete" component={DeviceDelete}/>
 
-                    <Route exact path="/VLANList" component={VLANList}/>
+                    <Route exact path="/VLAN" component={VLANList}/>
+                    <Route exact path="/create/VLAN" component={VLANAdd}/>
 
-                    <Route exact path="/NATList" component={NATList}/>
+                    <Route exact path="/NAT" component={NATList}/>
 
                     <Route exact path="/location" component={Location}/>
                     <Route exact path="/create/location" component={LocationAdd}/>
