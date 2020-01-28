@@ -1,20 +1,23 @@
 import firebase from "firebase";
-import {INVALIDATE_LOCATION_LIST, INVALIDATE_DEVICE_LIST} from "./types";
+import {INVALIDATE_LOCATION_LIST, INVALIDATE_DEVICE_LIST, INVALIDATE_VLAN_LIST} from "./types";
 
-export const createLoc = (locData) => dispatch => {
-    firebase.firestore()
-        .collection("locations")
-        .add(locData)
-        .then(dispatch({
-            type: INVALIDATE_LOCATION_LIST
-        }));
+export const createLoc = (data) => dispatch => {
+    dispatch(createItem(data, "locations", INVALIDATE_LOCATION_LIST))
 };
 
-export const createDevice = (deviceData) => dispatch => {
+export const createDevice = (data) => dispatch => {
+    dispatch(createItem(data, "devices", INVALIDATE_DEVICE_LIST))
+};
+
+export const createVLAN = (data) => dispatch => {
+    dispatch(createItem(data, "vlan", INVALIDATE_VLAN_LIST))
+};
+
+const createItem = (data, tableName, type) => dispatch => {
     firebase.firestore()
-        .collection("devices")
-        .add(deviceData)
+        .collection(tableName)
+        .add(data)
         .then(dispatch({
-            type: INVALIDATE_DEVICE_LIST
+            type: type
         }));
 };

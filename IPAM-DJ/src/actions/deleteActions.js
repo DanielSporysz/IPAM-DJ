@@ -1,22 +1,24 @@
 import firebase from "firebase";
-import {INVALIDATE_LOCATION_LIST, INVALIDATE_DEVICE_LIST} from "./types";
+import {INVALIDATE_LOCATION_LIST, INVALIDATE_DEVICE_LIST, INVALIDATE_VLAN_LIST} from "./types";
 
-export const deleteLoc = (locID) => dispatch => {
-    firebase.firestore()
-        .collection("locations")
-        .doc(locID)
-        .delete()
-        .then(dispatch({
-            type: INVALIDATE_LOCATION_LIST
-        }));
+export const deleteLoc = (id) => dispatch => {
+    dispatch(deleteItem(id, "locations", INVALIDATE_LOCATION_LIST));
 };
 
-export const deleteDevice = (deviceID) => dispatch => {
+export const deleteDevice = (id) => dispatch => {
+    dispatch(deleteItem(id, "devices", INVALIDATE_DEVICE_LIST));
+};
+
+export const deleteVLAN = (id) => dispatch => {
+    dispatch(deleteItem(id, "vlan", INVALIDATE_VLAN_LIST));
+};
+
+const deleteItem = (id, tableName, type) => dispatch => {
     firebase.firestore()
-        .collection("devices")
-        .doc(deviceID)
+        .collection("tableName")
+        .doc(id)
         .delete()
         .then(dispatch({
-            type: INVALIDATE_DEVICE_LIST
+            type: type
         }));
 };
