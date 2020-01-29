@@ -3,7 +3,10 @@ import {
     INVALIDATE_LOCATION_LIST,
     INVALIDATE_DEVICE_LIST,
     INVALIDATE_VLAN_LIST,
-    INVALIDATE_NAMESERVER_LIST
+    INVALIDATE_NAMESERVER_LIST,
+    INVALIDATE_SUBNET_LIST,
+    INVALIDATE_RACK_LIST,
+    INVALIDATE_NAT_LIST
 } from "./types";
 
 export const createLoc = (data) => dispatch => {
@@ -20,6 +23,18 @@ export const createVLAN = (data) => dispatch => {
 
 export const createNameServer = (data) => dispatch => {
     dispatch(createItem(data, "nameservers", INVALIDATE_NAMESERVER_LIST))
+};
+
+export const createSubNet = (data) => dispatch => {
+    dispatch(createItem(data, "subnets", INVALIDATE_SUBNET_LIST))
+};
+
+export const createRack = (data) => dispatch => {
+    dispatch(createItem(data, "racks", INVALIDATE_RACK_LIST))
+};
+
+export const createNAT = (data) => dispatch => {
+    dispatch(createItem(data, "nat", INVALIDATE_NAT_LIST))
 };
 
 const createItem = (data, tableName, type) => dispatch => {

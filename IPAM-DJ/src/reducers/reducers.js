@@ -1,16 +1,24 @@
 import {
     RECEIVE_DEVICE_LIST,
-    RECEIVE_LOCATION_LIST,
-    RECEIVE_NAT_LIST,
-    RECEIVE_RACK_LIST,
-    RECEIVE_SUBNET_LIST,
-    RECEIVE_VLAN_LIST,
-    RECEIVE_NAMESERVER_LIST,
-
-    INVALIDATE_LOCATION_LIST,
     INVALIDATE_DEVICE_LIST,
+
+    RECEIVE_LOCATION_LIST,
+    INVALIDATE_LOCATION_LIST,
+
+    RECEIVE_NAT_LIST,
+    INVALIDATE_NAT_LIST,
+
+    RECEIVE_RACK_LIST,
+    INVALIDATE_RACK_LIST,
+
+    RECEIVE_SUBNET_LIST,
+    INVALIDATE_SUBNET_LIST,
+
+    RECEIVE_VLAN_LIST,
     INVALIDATE_VLAN_LIST,
-    INVALIDATE_NAMESERVER_LIST
+
+    RECEIVE_NAMESERVER_LIST,
+    INVALIDATE_NAMESERVER_LIST,
 } from "../actions/types";
 
 export const fetchReducer = (state = {}, action) => {
@@ -28,6 +36,7 @@ export const fetchReducer = (state = {}, action) => {
                 locList: null,
                 isLocListReady: false
             };
+
         case RECEIVE_DEVICE_LIST:
             return {
                 ...state,
@@ -41,6 +50,7 @@ export const fetchReducer = (state = {}, action) => {
                 deviceList: null,
                 isDeviceListReady: false
             };
+
         case RECEIVE_NAT_LIST:
             return {
                 ...state,
@@ -48,6 +58,13 @@ export const fetchReducer = (state = {}, action) => {
                 NATListReceivedAt: action.receivedAt,
                 isNATListReady: true
             };
+        case INVALIDATE_NAT_LIST:
+            return {
+                ...state,
+                NATList: null,
+                isNATListReady: false
+            };
+
         case RECEIVE_VLAN_LIST:
             return {
                 ...state,
@@ -61,6 +78,7 @@ export const fetchReducer = (state = {}, action) => {
                 VLANList: null,
                 isVLANListReady: false
             };
+
         case RECEIVE_RACK_LIST:
             return {
                 ...state,
@@ -68,6 +86,13 @@ export const fetchReducer = (state = {}, action) => {
                 rackListReceivedAt: action.receivedAt,
                 isRackListReady: true
             };
+        case INVALIDATE_RACK_LIST:
+            return {
+                ...state,
+                rackList: null,
+                isRackListReady: false
+            };
+
         case RECEIVE_SUBNET_LIST:
             return {
                 ...state,
@@ -75,6 +100,13 @@ export const fetchReducer = (state = {}, action) => {
                 subnetListReceivedAt: action.receivedAt,
                 isSubnetListReady: true
             };
+        case INVALIDATE_SUBNET_LIST:
+            return {
+                ...state,
+                subnetList: null,
+                isSubnetListReady: false
+            };
+
         case RECEIVE_NAMESERVER_LIST:
             return {
                 ...state,

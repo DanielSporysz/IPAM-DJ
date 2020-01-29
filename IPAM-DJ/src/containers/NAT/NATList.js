@@ -50,9 +50,9 @@ class NATList extends Component {
                         <Table
                             items={items}
                             labels={["id",
-                                "device",
-                                "ip",
                                 "name",
+                                "devices",
+                                "ip",
                                 "subnet",
                                 "options"]}/>
                     </div>
