@@ -25,6 +25,22 @@ div.topNavBar div {
     top: 0;
 }
 
+.backTopButton {
+    display: inline-block;
+    width: 45px;
+    height: 45px;
+    position: fixed;
+    left: 10px;
+    bottom: 10px;
+    z-index: 100;
+    background: #023459;
+    padding: 5px;
+}
+
+svg {
+    fill: black;
+}
+
 ul {
     margin: 0;
     padding: 0;
@@ -88,7 +104,7 @@ button:hover {
 table {
     /*border-spacing: 0; /* it's crucial to make on-hover options work */
     border-collapse: collapse;
-    margin: 20px 2.5%;
+    margin: 20px 2.5% 80px 2.5%;
     width: 95%;
 }
 
@@ -202,6 +218,7 @@ input[type=text], select,
 input[type=password],
 input[type=date]{
     width: 100%;
+    height: 39px;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
@@ -209,6 +226,20 @@ input[type=date]{
     border-radius: 4px;
     box-sizing: border-box;
     color: black;
+    font-size: 14px;
+}
+
+input[type=checkbox]{
+    margin: 12px 10px 18px 10px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+::placeholder {
+    color: #aaa;
 }
 
 .goodBtn {
@@ -282,7 +313,11 @@ input[type=date]{
 
 @media only screen and (max-width: 950px) {
   table {
-    margin: 20px 0;
+    margin: 20px 0 80px 0;
+    width: 100%;
+  }
+  .addDiv {
+    margin: 20px 0 0 0;
     width: 100%;
   }
 }

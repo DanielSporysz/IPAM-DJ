@@ -131,6 +131,7 @@ class DeviceAdd extends Component {
                             onChange={this.handleChange}
                             checked={this.state.gateway}
                         />
+                        <br/>
                         Hostname:
                         <input
                             type="text"
