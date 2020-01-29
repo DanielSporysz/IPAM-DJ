@@ -41,10 +41,10 @@ class LocationList extends Component {
                 <TopNavBar currentPage={this.props.match}/>
                 {this.props.isLocListReady ?
                     <div>
-                        <div class="addDiv">
+                        <div className="addDiv">
                             <h2>List of all locations:</h2>
                             <Link to={"/create/location"}>
-                                <button class="neutralBtn">Add new location</button>
+                                <button className="neutralBtn">Add new location</button>
                             </Link>
                         </div>
                         <Table items={items}

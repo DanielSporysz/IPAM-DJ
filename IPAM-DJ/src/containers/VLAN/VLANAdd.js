@@ -6,7 +6,7 @@ import {fetchSubnetListIfNeeded} from "../../actions/fetchActions";
 import {createVLAN} from "../../actions/createActions";
 import {Link} from "react-router-dom";
 import PropTypes from "prop-types";
-import Picker from "../../components/Picker";
+import MultiPicker from "../../components/MultiPicker";
 
 class VLANAdd extends Component {
 
@@ -106,8 +106,8 @@ class VLANAdd extends Component {
                             onChange={this.handleChange}
                             value={this.state.about}
                         />
-                        Subnet:
-                        <Picker
+                        Subnets:
+                        <MultiPicker
                             options={subnetOptions}
                             onChange={this.handleChange}
                             value={this.state.subnets}

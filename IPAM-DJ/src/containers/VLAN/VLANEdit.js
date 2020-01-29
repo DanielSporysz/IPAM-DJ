@@ -9,7 +9,7 @@ import {
 import {updateVLAN} from "../../actions/updateActions";
 import {Link} from "react-router-dom";
 import PropTypes from "prop-types";
-import Picker from "../../components/Picker";
+import MultiPicker from "../../components/MultiPicker";
 
 class VLANEdit extends Component {
 
@@ -23,7 +23,7 @@ class VLANEdit extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            id:"",
+            id: "",
             name: "",
             about: "",
             subnets: "",
@@ -84,24 +84,6 @@ class VLANEdit extends Component {
     };
 
     render() {
-        if (!this.props.isVLANListReady || !this.props.isSubnetListReady ) {
-            return (
-                <div>
-                    <TopNavBar currentPage={this.props.match}/>
-                    <h2>Loading resources...</h2>
-                </div>
-            )
-        }
-
-        if(this.props.isVLANListReady && !Object.keys(this.props.VLANList).includes(this.state.id)){
-            return (
-                <div>
-                    <TopNavBar currentPage={this.props.match}/>
-                    <h2>There is no VLAN of this id!</h2>
-                </div>
-            )
-        }
-
         if (this.state.formSent) {
             return (
                 <div>
@@ -116,9 +98,27 @@ class VLANEdit extends Component {
             )
         }
 
+        if (!this.props.isVLANListReady || !this.props.isSubnetListReady) {
+            return (
+                <div>
+                    <TopNavBar currentPage={this.props.match}/>
+                    <h2>Loading resources...</h2>
+                </div>
+            )
+        }
+
+        if (this.props.isVLANListReady && !Object.keys(this.props.VLANList).includes(this.state.id)) {
+            return (
+                <div>
+                    <TopNavBar currentPage={this.props.match}/>
+                    <h2>There is no VLAN of this id!</h2>
+                </div>
+            )
+        }
+
         let subnetOptions = [""];
         for (const subnetIdx in this.props.subnetList) {
-            if(this.props.subnetList.hasOwnProperty(subnetIdx)){
+            if (this.props.subnetList.hasOwnProperty(subnetIdx)) {
                 subnetOptions.push(this.props.subnetList[subnetIdx]["id"]);
             }
         }
@@ -146,11 +146,11 @@ class VLANEdit extends Component {
                             value={this.state.about}
                         />
                         Subnet:
-                        <Picker
+                        <MultiPicker
                             options={subnetOptions}
                             onChange={this.handleChange}
                             value={this.state.subnets}
-                            name={"subnet"}/>
+                            name={"subnets"}/>
                         <div className="formFooter">
                             <Link to={"/VLAN"}>
                                 <button className="returnButton neutralBtn">Cancel</button>
