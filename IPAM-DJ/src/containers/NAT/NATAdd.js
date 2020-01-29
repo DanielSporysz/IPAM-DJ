@@ -2,10 +2,11 @@ import React, {Component} from "react"
 import {connect} from "react-redux"
 
 import TopNavBar from "../../components/TopNavBar";
-import {fetchSubnetListIfNeeded} from "../../actions/fetchActions";
+import {fetchSubnetListIfNeeded, fetchDeviceListIfNeeded} from "../../actions/fetchActions";
 import {createNAT} from "../../actions/createActions";
 import {Link} from "react-router-dom";
 import PropTypes from "prop-types";
+import Picker from "../../components/Picker";
 import MultiPicker from "../../components/MultiPicker";
 
 class NATAdd extends Component {
@@ -13,20 +14,24 @@ class NATAdd extends Component {
     static propTypes = {
         subnetList: PropTypes.object,
         isSubnetListReady: PropTypes.bool,
+        deviceList: PropTypes.object,
+        isDeviceListReady: PropTypes.bool,
     };
 
     constructor(props) {
         super(props);
         this.state = {
-            about: "",
             name: "",
-            subnets: "",
+            devices: "",
+            ip: "",
+            subnet: "",
             formSent: false
         }
     }
 
     componentDidMount() {
         this.props.fetchSubnetListIfNeeded();
+        this.props.fetchDeviceListIfNeeded();
     }
 
     handleChange = (e) => {
@@ -43,12 +48,13 @@ class NATAdd extends Component {
     sendForm = (event) => {
         event.preventDefault();
 
-        const newDevice = {
-            about: this.state.about,
+        const newItem = {
             name: this.state.name,
-            subnets: this.state.subnets,
+            devices: this.state.devices,
+            ip: this.state.ip,
+            subnet: this.state.subnet,
         };
-        this.props.createNAT(newDevice);
+        this.props.createNAT(newItem);
 
         this.setState({
             formSent: true
@@ -56,7 +62,21 @@ class NATAdd extends Component {
     };
 
     render() {
-        if (!this.props.isSubnetListReady) {
+        if (this.state.formSent) {
+            return (
+                <div>
+                    <TopNavBar currentPage={this.props.match}/>
+                    <div className="callbackDiv">
+                        <h2>New NAT has been created.</h2>
+                        <Link to={"/nat"}>
+                            <button className="returnButton neutralBtn">Return</button>
+                        </Link>
+                    </div>
+                </div>
+            )
+        }
+
+        if (!this.props.isSubnetListReady || !this.props.isDeviceListReady) {
             return (
                 <div>
                     <TopNavBar currentPage={this.props.match}/>
@@ -65,30 +85,20 @@ class NATAdd extends Component {
             )
         }
 
-        if (this.state.formSent) {
-            return (
-                <div>
-                    <TopNavBar currentPage={this.props.match}/>
-                    <div className="callbackDiv">
-                        <h2>New VLAN has been created.</h2>
-                        <Link to={"/vlan"}>
-                            <button className="returnButton neutralBtn">Return</button>
-                        </Link>
-                    </div>
-                </div>
-            )
-        }
-
         let subnetOptions = [""];
-        for (const subnetIdx in this.props.subnetList) {
-            subnetOptions.push(this.props.subnetList[subnetIdx]["id"]);
+        for (const idx in this.props.subnetList) {
+            subnetOptions.push(this.props.subnetList[idx]["id"]);
+        }
+        let devicesOptions = [""];
+        for (const idx in this.props.deviceList) {
+            devicesOptions.push(this.props.deviceList[idx]["id"]);
         }
 
         return (
             <div>
                 <TopNavBar currentPage={this.props.match}/>
                 <div className="formDiv">
-                    <h2>Create a new device</h2>
+                    <h2>Create new NAT</h2>
                     <form onSubmit={this.sendForm}>
                         Name:
                         <input
@@ -98,20 +108,26 @@ class NATAdd extends Component {
                             onChange={this.handleChange}
                             value={this.state.name}
                         />
-                        About:
+                        IP:
                         <input
                             type="text"
-                            name="about"
-                            placeholder="about"
+                            name="ip"
+                            placeholder="ip"
                             onChange={this.handleChange}
-                            value={this.state.about}
+                            value={this.state.ip}
                         />
-                        Subnets:
+                        Devices:
                         <MultiPicker
+                            options={devicesOptions}
+                            onChange={this.handleChange}
+                            value={this.state.devices}
+                            name={"devices"}/>
+                        Subnet:
+                        <Picker
                             options={subnetOptions}
                             onChange={this.handleChange}
-                            value={this.state.subnets}
-                            name={"subnets"}/>
+                            value={this.state.subnet}
+                            name={"subnet"}/>
                         <div className="formFooter">
                             <Link to={"/VLAN"}>
                                 <button className="returnButton neutralBtn">Cancel</button>
@@ -130,10 +146,13 @@ const mapStateToProps = state => {
     return {
         subnetList: state.fetchReducer.subnetList,
         isSubnetListReady: state.fetchReducer.isSubnetListReady,
+        deviceList: state.fetchReducer.deviceList,
+        isDeviceListReady: state.fetchReducer.isDeviceListReady,
     }
 };
 
 export default connect(mapStateToProps, {
     fetchSubnetListIfNeeded,
+    fetchDeviceListIfNeeded,
     createNAT
 })(NATAdd)
