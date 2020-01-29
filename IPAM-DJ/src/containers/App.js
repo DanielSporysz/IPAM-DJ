@@ -19,6 +19,7 @@ import VLANDelete from "./VLAN/VLANDelete";
 
 import NATList from "./NAT/NATList";
 import NATAdd from "./NAT/NATAdd";
+import NATEdit from "./NAT/NATEdit";
 
 import RackList from "./rack/RackList";
 
@@ -61,6 +62,7 @@ function App() {
 
                     <Route exact path="/NAT" component={NATList}/>
                     <Route exact path="/create/NAT" component={NATAdd}/>
+                    <Route exact path="/NAT/:id/edit" component={NATEdit}/>
 
                     <Route exact path="/location" component={Location}/>
                     <Route exact path="/create/location" component={LocationAdd}/>

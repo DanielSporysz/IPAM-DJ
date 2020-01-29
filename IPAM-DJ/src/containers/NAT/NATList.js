@@ -27,10 +27,10 @@ class NATList extends Component {
             items[itemId]["id"] = itemId;
             items[itemId]["options"] =
                 <div key={itemId + "options"}>
-                    <Link key={itemId + "edit"} to={"/nat/" + itemId + "/edit"}>
+                    <Link key={itemId + "edit"} to={"/NAT/" + itemId + "/edit"}>
                         <img className="edit" src={EditImage} alt="edit"/>
                     </Link>
-                    <Link key={itemId + "delete"} to={"/nat/" + itemId + "/delete"}>
+                    <Link key={itemId + "delete"} to={"/NAT/" + itemId + "/delete"}>
                         <img className="delete" src={DeleteImage} alt="delete"/>
                     </Link>
                 </div>;
