@@ -41,10 +41,10 @@ class NATList extends Component {
                 <TopNavBar currentPage={this.props.match}/>
                 {this.props.isNATListReady ?
                     <div>
-                        <div class="addDiv">
+                        <div className="addDiv">
                             <h2>List of all NAT:</h2>
                             <Link to={"/create/NAT"}>
-                                <button class="neutralBtn">Add new NAT</button>
+                                <button className="neutralBtn">Add new NAT</button>
                             </Link>
                         </div>
                         <Table

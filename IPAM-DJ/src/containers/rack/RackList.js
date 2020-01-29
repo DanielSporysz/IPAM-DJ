@@ -41,10 +41,10 @@ class RackList extends Component {
                 <TopNavBar currentPage={this.props.match}/>
                 {this.props.isRackListReady ?
                     <div>
-                        <div class="addDiv">
+                        <div className="addDiv">
                             <h2>List of all racks:</h2>
                             <Link to={"/create/rack"}>
-                                <button class="neutralBtn">Add new rack</button>
+                                <button className="neutralBtn">Add new rack</button>
                             </Link>
                         </div>
                         <Table items={items}
