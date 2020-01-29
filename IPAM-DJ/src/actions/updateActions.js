@@ -45,3 +45,27 @@ const updateItem = (id, data, tableName, type) => dispatch => {
             type: type
         }));
 };
+
+export const invalidateAll = () => dispatch => {
+    dispatch({
+        type: INVALIDATE_LOCATION_LIST
+    });
+    dispatch({
+        type: INVALIDATE_DEVICE_LIST
+    });
+    dispatch({
+        type: INVALIDATE_VLAN_LIST
+    });
+    dispatch({
+        type: INVALIDATE_NAMESERVER_LIST
+    });
+    dispatch({
+        type: INVALIDATE_SUBNET_LIST
+    });
+    dispatch({
+        type: INVALIDATE_RACK_LIST
+    });
+    dispatch({
+        type: INVALIDATE_NAT_LIST
+    });
+};

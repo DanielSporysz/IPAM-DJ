@@ -11,6 +11,7 @@ import {
     fetchDeviceListIfNeeded,
     fetchNATListIfNeeded
 } from "../actions/fetchActions";
+import {invalidateAll} from "../actions/updateActions";
 import PropTypes from "prop-types";
 
 class Home extends Component {
@@ -38,6 +39,10 @@ class Home extends Component {
         this.state = {
             generateJSON: false
         }
+    }
+
+    componentDidMount() {
+        this.props.invalidateAll();
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
@@ -137,5 +142,6 @@ export default connect(mapStateToProps, {
     fetchRackListIfNeeded,
     fetchLocListIfNeeded,
     fetchDeviceListIfNeeded,
-    fetchNATListIfNeeded
+    fetchNATListIfNeeded,
+    invalidateAll
 })(Home)
