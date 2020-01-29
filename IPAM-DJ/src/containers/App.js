@@ -28,6 +28,7 @@ import RackEdit from "./rack/RackEdit";
 import RackDelete from "./rack/RackDelete";
 
 import SubnetList from "./subnet/SubnetList";
+import SubnetAdd from "./subnet/SubnetAdd";
 
 import NameServerList from "./nameserver/NameServerList";
 import NameServerAdd from "./nameserver/NameServerAdd";
@@ -80,6 +81,7 @@ function App() {
                     <Route exact path="/rack/:id/delete" component={RackDelete}/>
 
                     <Route exact path="/subnet" component={SubnetList}/>
+                    <Route exact path="/create/subnet" component={SubnetAdd}/>
 
                     <Route exact path="/name-server" component={NameServerList}/>
                     <Route exact path="/name-server/:id/edit" component={NameServerEdit}/>

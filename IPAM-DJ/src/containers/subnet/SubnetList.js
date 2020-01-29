@@ -48,10 +48,17 @@ class SubnetList extends Component {
                             </Link>
                         </div>
                         <Table items={items}
-                            labels={["id", "about", "device",
-                                "dhcp", "dmz", "ip",
-                                "loc", "mask", "nameservers",
-                                "routable", "options"]}/>
+                            labels={[
+                                "id",
+                                "about",
+                                "ip",
+                                "mask",
+                                "dhcp",
+                                "nameservers",
+                                "loc",
+                                "dmz",
+                                "routable",
+                                "options"]}/>
                     </div>
                     : "Fetching list of subnets..."}
             </div>
