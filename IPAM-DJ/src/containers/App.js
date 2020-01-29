@@ -25,6 +25,7 @@ import NATDelete from "./NAT/NATDelete";
 import RackList from "./rack/RackList";
 import RackAdd from "./rack/RackAdd";
 import RackEdit from "./rack/RackEdit";
+import RackDelete from "./rack/RackDelete";
 
 import SubnetList from "./subnet/SubnetList";
 
@@ -76,6 +77,7 @@ function App() {
                     <Route exact path="/rack" component={RackList}/>
                     <Route exact path="/create/rack" component={RackAdd}/>
                     <Route exact path="/rack/:id/edit" component={RackEdit}/>
+                    <Route exact path="/rack/:id/delete" component={RackDelete}/>
 
                     <Route exact path="/subnet" component={SubnetList}/>
 
