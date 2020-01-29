@@ -1,5 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import ArrowImage from "../icons/arrow-up.svg";
+
 
 function TopNavBar(props) {
     const pages = {
@@ -26,7 +28,7 @@ function TopNavBar(props) {
 
     return (
         <div className="topNavBar">
-            <h1 className="title">IPAM-DJ</h1>
+            <h1 className="title"><a name="top">IPAM-DJ</a></h1>
             <div>
                 <ul className="links">
                     {links}
