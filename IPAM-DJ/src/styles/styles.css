@@ -161,7 +161,7 @@ tr:hover td {
 
 img.delete,
 img.edit {
-    width: 16px;
+    width: 40px;
 }
 
 tr:hover th.options img {
@@ -169,7 +169,7 @@ tr:hover th.options img {
 }
 
 th.options {
-    width: 40px;
+    width: 100px;
 }
 
 .addDiv {
