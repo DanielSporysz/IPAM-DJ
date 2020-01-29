@@ -28,7 +28,7 @@ class SubnetAdd extends Component {
             nameservers: "",
             loc: "",
             dmz: false,
-            routeable: false,
+            routable: false,
             formSent: false
         }
     }
@@ -60,7 +60,7 @@ class SubnetAdd extends Component {
             nameservers: this.state.nameservers,
             loc: this.state.loc,
             dmz: this.state.dmz,
-            routeable: this.state.routeable,
+            routable: this.state.routable,
         };
         this.props.createSubNet(newItem);
 
@@ -159,12 +159,12 @@ class SubnetAdd extends Component {
                             onChange={this.handleChange}
                             checked={this.state.dmz}
                         />
-                        Routeable:
+                        Routable:
                         <input
                             type="checkbox"
-                            name="routeable"
+                            name="routable"
                             onChange={this.handleChange}
-                            checked={this.state.routeable}
+                            checked={this.state.routable}
                         />
                         <div className="formFooter">
                             <Link to={"/subnet"}>
