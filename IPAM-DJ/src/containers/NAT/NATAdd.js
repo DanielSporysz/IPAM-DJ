@@ -129,7 +129,7 @@ class NATAdd extends Component {
                             value={this.state.subnet}
                             name={"subnet"}/>
                         <div className="formFooter">
-                            <Link to={"/VLAN"}>
+                            <Link to={"/NAT"}>
                                 <button className="returnButton neutralBtn">Cancel</button>
                             </Link>
                             <button className="submitButton goodBtn" type="submit" onClick={this.sendForm}>Create
