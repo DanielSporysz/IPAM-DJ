@@ -70,10 +70,10 @@ class LocationEdit extends Component {
             return (
                 <div>
                     <TopNavBar currentPage={this.props.match}/>
-                    <div class="callbackDiv">
+                    <div className="callbackDiv">
                         <h2>Location <b>{this.state.id}</b> has been updated.</h2>
                         <Link to={"/location"}>
-                            <button class="neutralBtn">Return</button>
+                            <button className="neutralBtn">Return</button>
                         </Link>
                     </div>
                 </div>
@@ -85,7 +85,7 @@ class LocationEdit extends Component {
                 <TopNavBar currentPage={this.props.match}/>
                 {this.props.isLocListReady ?
                     Object.keys(this.props.locList).includes(this.state.id) ?
-                        <div class="formDiv">
+                        <div className="formDiv">
                             <h2>Editing location <b>{this.state.id}</b>:</h2>
                             <form onSubmit={this.updateLocation}>
                                 <input
@@ -102,11 +102,11 @@ class LocationEdit extends Component {
                                     onChange={this.updateInput}
                                     value={this.state.about}
                                 />
-                                <div class="formFooter">
+                                <div className="formFooter">
                                     <Link to={"/location"}>
-                                        <button class="returnButton neutralBtn">Cancel</button>
+                                        <button className="returnButton neutralBtn">Cancel</button>
                                     </Link>
-                                    <button class="submitButton goodBtn" type="submit" onClick={this.updateLocation}>Submit</button>
+                                    <button className="submitButton goodBtn" type="submit" onClick={this.updateLocation}>Submit</button>
                                 </div>
                             </form>
                         </div> :
