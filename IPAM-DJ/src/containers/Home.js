@@ -99,7 +99,7 @@ class Home extends Component {
             <div>
                 <TopNavBar currentPage={this.props.match}/>
                 <h2 className="title">Welcome home! Make yourself feel comfortable!</h2>
-                <button onClick={e => this.requestJSON(e)}>Export database</button>
+                <div className="row"><button className="neutralBtn" onClick={e => this.requestJSON(e)}>Export database</button></div>
             </div>
         );
     }
