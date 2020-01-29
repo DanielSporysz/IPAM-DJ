@@ -202,6 +202,7 @@ input[type=text], select,
 input[type=password],
 input[type=date]{
     width: 100%;
+    height: 39px;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
@@ -283,6 +284,10 @@ input[type=date]{
 @media only screen and (max-width: 950px) {
   table {
     margin: 20px 0;
+    width: 100%;
+  }
+  .addDiv {
+    margin: 20px 0 0 0;
     width: 100%;
   }
 }
