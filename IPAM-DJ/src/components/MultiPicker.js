@@ -43,7 +43,6 @@ class MultiPicker extends Component {
         const newValueAsAWhole = {
             target: {
                 value: JSON.stringify(values),
-                //value: '["hejka", "whaddup"]',
                 type: "list",
                 name: this.props.name
             }
@@ -65,7 +64,9 @@ class MultiPicker extends Component {
                         name={idx}
                         key={idx}
                     >
-                        {this.props.options.map(
+                        {this.props.options
+                            .filter(value => ((!values.includes(value) && value !== values[idx]) || value === values[idx] || value === ""))
+                            .map(
                             option =>
                                 <option value={option} key={option}>
                                     {option}
